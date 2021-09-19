@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/icon_1"
+        android:enabled="true"
+        android:icon="@drawable/ic_perfil"
+        android:title="Perfil"/>
+    <item
+        android:id="@+id/icon_2"
+        android:enabled="true"
+        android:icon="@drawable/ic_config"
+        android:title="Configuraciones"/>
+
+    <item
+        android:id="@+id/icon_3"
+        android:enabled="true"
+        android:icon="@drawable/ic_noti_active"
+        android:title="Notificaciones"/>
+</menu>

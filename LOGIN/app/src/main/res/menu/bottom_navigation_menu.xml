@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/page_1"
+        android:enabled="true"
+        android:icon="@drawable/ic_grupo"
+        android:title="Equipos"/>
+    <item
+        android:id="@+id/page_2"
+        android:enabled="true"
+        android:icon="@drawable/ic_chat"
+        android:title="Chats"/>
+
+    <item
+        android:id="@+id/page_3"
+        android:enabled="true"
+        android:title="Actividad"
+        android:icon="@drawable/ic_actividad" />
+
+    <item
+        android:id="@+id/page_4"
+        android:enabled="true"
+        android:title="Tareas"
+        android:icon="@drawable/ic_tareas" />
+
+</menu>
