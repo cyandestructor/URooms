@@ -52,6 +52,21 @@
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/menu/menu_drawer.xml" value="0.25416666666666665" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/menu/menu_ocpionesforos.xml" value="0.25416666666666665" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/mipmap-anydpi-v26/ic_iconoapp_round.xml" value="0.2078125" />
+        <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/activity_main.xml" value="0.19882246376811594" />
+        <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/chat_pantalla.xml" value="0.19882246376811594" />
+        <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/crear_usuario.xml" value="0.19882246376811594" />
+        <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/estilo_mensajes.xml" value="0.19882246376811594" />
+        <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/estilo_publicacionforo.xml" value="0.19882246376811594" />
+        <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/foro_generalpantalla.xml" value="0.19882246376811594" />
+        <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/fragmento_actividades.xml" value="0.19882246376811594" />
+        <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/fragmento_chats.xml" value="0.19882246376811594" />
+        <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/fragmento_equipos.xml" value="0.19882246376811594" />
+        <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/fragmento_tareas.xml" value="0.19882246376811594" />
+        <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/menu_encabezado.xml" value="0.19882246376811594" />
+        <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/pantalla_creartarea.xml" value="0.19882246376811594" />
+        <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/pantalla_mandar_tarea.xml" value="0.19882246376811594" />
+        <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/pantalla_perfil.xml" value="0.19882246376811594" />
+        <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/pantalla_principal.xml" value="0.19882246376811594" />
       </map>
     </option>
   </component>
