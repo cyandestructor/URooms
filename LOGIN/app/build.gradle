@@ -45,6 +45,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.5.1-native-mt'
+    implementation 'com.google.android.gms:play-services-auth:19.2.0'
 
     implementation platform('com.google.firebase:firebase-bom:28.4.1')
     implementation 'com.google.firebase:firebase-analytics-ktx'
