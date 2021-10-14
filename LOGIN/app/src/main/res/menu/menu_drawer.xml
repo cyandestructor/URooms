@@ -17,4 +17,12 @@
         android:enabled="true"
         android:icon="@drawable/ic_noti_active"
         android:title="Notificaciones"/>
+
+    <item
+        android:id="@+id/icon_4"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_salir"
+        android:title="Salir"/>
+
+
 </menu>
