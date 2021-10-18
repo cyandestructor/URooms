@@ -4,7 +4,6 @@ import android.content.ContentValues
 import android.util.Log
 import com.fcfm.poi.yourooms.login.data.models.Message
 import com.fcfm.poi.yourooms.login.data.models.User
-import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
 import com.google.firebase.firestore.Query
@@ -18,7 +17,9 @@ class MessageDao {
 
     private val chatListenerRegistrations = mutableMapOf<String, ListenerRegistration>()
 
-    private var lastDocument: DocumentSnapshot? = null
+    private var lastMessage: Message? = null
+
+    private var canPaginate: Boolean = true
 
     suspend fun addMessage(message: Message, chatId: String): String? {
         val data = hashMapOf(
@@ -67,25 +68,35 @@ class MessageDao {
 
         val messages = mutableListOf<Message>()
 
+        // Return no messages if the user request pagination but it is no longer possible
+        if (pagination && !canPaginate) {
+            return messages
+        }
+
         var query = db.collection("chats/${chatId}/messages")
             .orderBy("date", Query.Direction.DESCENDING)
 
+        if (pagination && canPaginate && lastMessage != null) {
+            query = query.startAfter(lastMessage!!.date)
+        }
+
         if (limit != null) {
             query = query.limit(limit)
-
-            if (pagination && lastDocument != null) {
-                query = query.startAfter(lastDocument)
-            }
         }
 
         try {
             val result = query.get().await()
-            lastDocument = result.documents.last()
+
+            // If the total documents are less than the specified limit it means
+            // that those are the last results, so we cannot not paginate next
+            if (pagination && result.documents.size < (limit ?: 1)) {
+                canPaginate = false
+            }
 
             for (document in result.documents) {
                 val message = Message(
                     document.id,
-                    document.getDate("date"),
+                    document.getTimestamp("date"),
                     document.getString("body"),
                     User(
                         document.getString("sender.id"),
@@ -101,13 +112,19 @@ class MessageDao {
         }
         catch (e: Exception) {
             // TODO: Print error message
+            Log.e("MessageDao", e.message ?: "No message")
+        }
+
+        if (pagination && messages.isNotEmpty()) {
+            lastMessage = messages.last()
         }
 
         return  messages
     }
 
     fun resetChatMessagesPagination() {
-        lastDocument = null
+        lastMessage = null
+        canPaginate = true
     }
 
     fun listenChatLatestMessages(chatId: String, onUpdate: (List<Message>) -> Unit) {
@@ -128,7 +145,7 @@ class MessageDao {
                 for (document in value!!) {
                     val message = Message(
                         document.id,
-                        document.getDate("date"),
+                        document.getTimestamp("date"),
                         document.getString("body"),
                         User(
                             document.getString("sender.id"),

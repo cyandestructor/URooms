@@ -1,5 +1,6 @@
 package com.fcfm.poi.yourooms.login.data.models.dao
 
+import android.util.Log
 import com.fcfm.poi.yourooms.login.data.models.Chat
 import com.fcfm.poi.yourooms.login.data.models.Message
 import com.fcfm.poi.yourooms.login.data.models.User
@@ -123,16 +124,12 @@ class ChatDao {
         val chat = db.collection("chats").document(chatId)
         val chatMembers = chat.collection("members")
 
-        val membersIds = mutableListOf<String>()
-
         val batch = db.batch()
 
         return try {
             // Create a member in the Chat members subcollection
             for (member in members) {
                 if (member.id != null) {
-                    membersIds += member.id
-
                     val data = hashMapOf(
                         "name" to member.name,
                         "lastname" to member.lastname,
@@ -141,19 +138,20 @@ class ChatDao {
 
                     val memberDocument = chatMembers.document(member.id)
                     batch.set(memberDocument, data)
+
+                    batch.update(chat,
+                        "members", FieldValue.arrayUnion(member.id),
+                        "totalMembers", FieldValue.increment(1)
+                    )
                 }
             }
-
-            batch.update(chat,
-                "members", FieldValue.arrayUnion(membersIds),
-                "totalMembers", FieldValue.increment(membersIds.size.toLong())
-            )
 
             batch.commit().await()
 
             true
         }
         catch (e: Exception){
+            Log.e("ChatDao", e.message ?: "No message")
             return false
         }
     }

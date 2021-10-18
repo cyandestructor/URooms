@@ -5,8 +5,14 @@ import com.google.firebase.auth.GoogleAuthProvider
 class GoogleAuthentication(
     private val idToken: String
 ): Authentication() {
-    override fun signIn(): Boolean {
+    override suspend fun signIn(): Boolean {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
-        return  auth.signInWithCredential(credential).isSuccessful
+        return try {
+            auth.signInWithCredential(credential)
+            true
+        }
+        catch (e: Exception) {
+            false
+        }
     }
 }

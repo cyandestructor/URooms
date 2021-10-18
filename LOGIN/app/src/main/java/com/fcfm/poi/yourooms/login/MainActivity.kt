@@ -1,17 +1,26 @@
 package com.fcfm.poi.yourooms.login
 
 import android.animation.Animator
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.Button
+import android.widget.EditText
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.annotation.NonNull
 import androidx.recyclerview.widget.RecyclerView
+import com.fcfm.poi.yourooms.login.authentication.EmailPasswordAuthentication
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -19,7 +28,32 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        findViewById<Button>(R.id.entrar_login).setOnClickListener {
+            login(it)
+        }
 
+    }
+
+    private fun login(it: View) {
+        it.isEnabled = false
+        val email = findViewById<EditText>(R.id.Usuario_login).text.toString()
+        val password = findViewById<EditText>(R.id.usuario_contrasena).text.toString()
+        CoroutineScope(Dispatchers.IO).launch {
+            val authentication = EmailPasswordAuthentication(email, password)
+
+            val success = authentication.signIn()
+
+            withContext(Dispatchers.Main) {
+                if (success) {
+                    it.isEnabled = true
+                    val i = Intent(this@MainActivity, PrincipalActivity::class.java)
+                    startActivity(i)
+                }
+                else {
+                    Toast.makeText(applicationContext, "Incorrect credentials", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
 }
 

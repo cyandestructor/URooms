@@ -1,14 +1,28 @@
 package com.fcfm.poi.yourooms.login.authentication
 
+import kotlinx.coroutines.tasks.await
+
 class EmailPasswordAuthentication(
     private val email: String,
     private val password: String
 ): Authentication() {
-    override fun signIn(): Boolean {
-        return auth.signInWithEmailAndPassword(email, password).isSuccessful
+    override suspend fun signIn(): Boolean {
+        return try {
+            auth.signInWithEmailAndPassword(email, password).await()
+            true
+        }
+        catch (e: Exception) {
+            false
+        }
     }
 
-    fun registerUser(): Boolean {
-        return auth.createUserWithEmailAndPassword(email, password).isSuccessful
+    suspend fun registerUser(): Boolean {
+        return try {
+            auth.createUserWithEmailAndPassword(email, password).await()
+            true
+        }
+        catch (e: Exception) {
+            return false
+        }
     }
 }

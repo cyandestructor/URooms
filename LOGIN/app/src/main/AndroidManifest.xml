@@ -9,72 +9,52 @@
         android:roundIcon="@mipmap/ic_iconoapp_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
+        <activity
+            android:name=".Test"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-
-        </activity>
-        <activity
-            android:name=".CrearActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            >
-
-        </activity>
-        <activity
-            android:name=".PrincipalActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-
-        </activity>
-
-        <activity
-            android:name=".PerfilActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            >
-
-
-        </activity>
-
-        <activity
-            android:name=".ChatActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-        </activity>
-
-
-        <activity
-            android:name=".EntregarTareaActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            >
-
-        </activity>
-
-        <activity
-            android:name=".ForoGenActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-
-        </activity>
-
-        <activity
-            android:name=".CrearTareaActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            >
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".CrearActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".PrincipalActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
 
         </activity>
-
+        <activity
+            android:name=".PerfilActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".ChatActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".EntregarTareaActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".ForoGenActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".CrearTareaActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
     </application>
 
 </manifest>

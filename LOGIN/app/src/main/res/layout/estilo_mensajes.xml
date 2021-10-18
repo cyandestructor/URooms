@@ -54,11 +54,11 @@ app:cardUseCompatPadding="true"
 
         <TextView
             android:id="@+id/fecha_mensaje"
-            android:layout_width="58dp"
-            android:layout_height="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="139dp"
-            android:layout_marginEnd="0dp"
+            android:layout_marginStart="78dp"
+            android:layout_marginEnd="66dp"
             android:layout_toEndOf="@+id/Propietario_mensaje"
             android:text="Jueves"
             android:textColor="#757575" />
