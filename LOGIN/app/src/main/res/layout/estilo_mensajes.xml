@@ -1,78 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-android:id="@+id/cv"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:animateLayoutChanges="true"
-app:cardCornerRadius="20dp"
-app:cardElevation="2dp"
-app:cardUseCompatPadding="true"
-    >
-<LinearLayout
-    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cv"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:animateLayoutChanges="true"
-    android:orientation="vertical"    >
+    app:cardCornerRadius="20dp"
+    app:cardElevation="2dp"
+    app:cardUseCompatPadding="true">
 
-    <RelativeLayout
-        android:id="@+id/mensaje_cont"
+    <LinearLayout
+        android:id="@+id/contenedor_mensaj"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#DADADA"
-        android:orientation="horizontal"
-        android:padding="16dp">
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/imagen_perfil_cuadro"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="1dp"
-            app:cardCornerRadius="60dp">
+        <RelativeLayout
+            android:id="@+id/mensaje_cont"
+            android:layout_width="307dp"
+            android:layout_height="match_parent"
+            android:background="#DADADA"
+            android:orientation="horizontal"
+            android:padding="16dp">
 
-            <ImageView
-                android:id="@+id/perfil_mensaje"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/imagen_perfil_cuadro"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/foto_perfil" />
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                app:cardCornerRadius="60dp">
 
-        </androidx.cardview.widget.CardView>
+                <ImageView
+                    android:id="@+id/perfil_mensaje"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/foto_perfil" />
 
-        <TextView
-            android:id="@+id/Propietario_mensaje"
-            android:layout_width="127dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="8dp"
-            android:layout_toEndOf="@+id/imagen_perfil_cuadro"
-            android:text="Guillermo Rocha"
-            android:textColor="#2B2B2B" />
+            </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:id="@+id/fecha_mensaje"
-            android:layout_width="wrap_content"
-            android:layout_height="18dp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="78dp"
-            android:layout_marginEnd="66dp"
-            android:layout_toEndOf="@+id/Propietario_mensaje"
-            android:text="Jueves"
-            android:textColor="#757575" />
+            <TextView
+                android:id="@+id/Propietario_mensaje"
+                android:layout_width="127dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="8dp"
+                android:layout_toEndOf="@+id/imagen_perfil_cuadro"
+                android:text="Guillermo Rocha"
+                android:textColor="#2B2B2B" />
 
-        <TextView
-            android:id="@+id/msj_cont"
-            android:layout_width="wrap_content"
-            android:layout_height="46dp"
-            android:layout_below="@+id/Propietario_mensaje"
-            android:layout_marginTop="19dp"
-            android:text="Hola! Recuerda que tenemos que hacer reunion para la actividad de la otra clase, byeee." />
+            <TextView
+                android:id="@+id/fecha_mensaje"
+                android:layout_width="87dp"
+                android:layout_height="19dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="35dp"
+                android:layout_marginEnd="5dp"
+                android:layout_toEndOf="@+id/Propietario_mensaje"
+                android:text="Jueves"
+                android:textColor="#757575" />
+
+            <TextView
+                android:id="@+id/msj_cont"
+                android:layout_width="wrap_content"
+                android:layout_height="46dp"
+                android:layout_below="@+id/Propietario_mensaje"
+                android:layout_marginTop="19dp"
+                android:text="Hola! Recuerda que tenemos que hacer reunion para la actividad de la otra clase, byeee." />
 
 
-    </RelativeLayout>
-</LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>

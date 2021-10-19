@@ -22,6 +22,7 @@
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/chat_pantalla.xml" value="0.264" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/crear_usuario.xml" value="0.264" />
+        <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/elemento_chats.xml" value="0.23324275362318841" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/equipo_elemento.xml" value="0.4" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/estado_perfil.xml" value="0.23731884057971014" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/estilo_mensajes.xml" value="0.4" />
@@ -33,7 +34,7 @@
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/fragment_menuequipos.xml" value="0.22056159420289856" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/fragment_tarea.xml" value="0.22056159420289856" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/fragmento_actividades.xml" value="0.2" />
-        <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/fragmento_chats.xml" value="0.264" />
+        <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/fragmento_chats.xml" value="0.2" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/fragmento_equipos.xml" value="0.264" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/fragmento_tareas.xml" value="0.264" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/list_element.xml" value="0.2" />
@@ -42,7 +43,7 @@
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/pantalla_equipos.xml" value="0.2" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/pantalla_mandar_tarea.xml" value="0.264" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/pantalla_perfil.xml" value="0.264" />
-        <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/pantalla_principal.xml" value="0.2" />
+        <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/pantalla_principal.xml" value="0.176" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/toolbar.xml" value="0.24094202898550723" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/menu/bottom_navigation.xml" value="0.25416666666666665" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.25416666666666665" />

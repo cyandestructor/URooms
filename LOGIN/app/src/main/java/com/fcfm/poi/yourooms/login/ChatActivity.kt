@@ -1,6 +1,7 @@
 package com.fcfm.poi.yourooms.login
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.media.Image
 import android.os.Bundle
 import android.view.View
@@ -52,7 +53,6 @@ class ChatActivity : AppCompatActivity (){
     private fun loadMessages() {
         messageRecyclerView = findViewById(R.id.messageRecyclerView)
         messageRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true)
-
         chatId = intent.getStringExtra("chatId")
         val chatName = intent.getStringExtra("chatName")
 

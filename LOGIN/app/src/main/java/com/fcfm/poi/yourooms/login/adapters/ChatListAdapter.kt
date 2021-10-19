@@ -1,5 +1,7 @@
 package com.fcfm.poi.yourooms.login.adapters
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,12 +19,13 @@ class ChatListAdapter(private val chatList: List<Chat>) : RecyclerView.Adapter<C
             itemView.findViewById<TextView>(R.id.chatName).text = chat.name
             itemView.findViewById<TextView>(R.id.lastMessageBody).text = chat.lastMessage?.body
             itemView.tag = chat
+
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val view = inflater.inflate(R.layout.fragmento_chats, parent, false)
+        val view = inflater.inflate(R.layout.elemento_chats, parent, false)
 
         view.setOnClickListener(this)
 

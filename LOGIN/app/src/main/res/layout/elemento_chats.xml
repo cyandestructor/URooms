@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+        android:background="#ffffff">
+
+        <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/imagen_perfil_cuadro"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            app:cardCornerRadius="60dp">
+
+            <ImageView
+                android:id="@+id/perfil_mensaje"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/foto_perfil" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/chatName"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/imagen_perfil_cuadro"
+            android:text="Guille"
+            android:textColor="#000000"
+            android:textSize="20sp">
+
+        </TextView>
+
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="95dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/chatName"
+            android:text="2:30AM"
+            android:textColor="#8C8C8C"
+            android:textSize="12sp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/lastMessageBody"
+            android:layout_width="226dp"
+            android:layout_height="28dp"
+            android:layout_below="@+id/chatName"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/imagen_perfil_cuadro"
+            android:text="¿Donde estas perdida?"
+            android:textColor="#818181"
+            android:textSize="15sp">
+
+        </TextView>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
