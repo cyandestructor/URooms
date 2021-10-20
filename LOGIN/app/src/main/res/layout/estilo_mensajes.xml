@@ -55,10 +55,10 @@
 
             <TextView
                 android:id="@+id/fecha_mensaje"
-                android:layout_width="87dp"
-                android:layout_height="19dp"
+                android:layout_width="89dp"
+                android:layout_height="20dp"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="35dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginEnd="5dp"
                 android:layout_toEndOf="@+id/Propietario_mensaje"
                 android:text="Jueves"

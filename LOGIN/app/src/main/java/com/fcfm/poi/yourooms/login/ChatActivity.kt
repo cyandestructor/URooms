@@ -1,14 +1,12 @@
 package com.fcfm.poi.yourooms.login
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Color
 import android.media.Image
 import android.os.Bundle
 import android.view.View
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -35,6 +33,11 @@ class ChatActivity : AppCompatActivity (){
 
         findViewById<ImageButton>(R.id.imageButton_sendmess).setOnClickListener {
             sendMessage(it)
+        }
+
+        findViewById<ImageButton>(R.id.imageButton_return).setOnClickListener{
+        val pantallainic = Intent(this,PrincipalActivity::class.java)
+            startActivity(pantallainic)
         }
     }
 
