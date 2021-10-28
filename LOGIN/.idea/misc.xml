@@ -8,6 +8,7 @@
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/drawable/boton_sinback.xml" value="0.2703125" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/drawable/botones_caract.xml" value="0.2546875" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/drawable/botones_sociales.xml" value="0.2546875" />
+        <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/drawable/estilo_spinner.xml" value="0.2703125" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/drawable/ic_actividad.xml" value="0.2703125" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/drawable/ic_add.xml" value="0.2703125" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/drawable/ic_baseline_dehaze_24.xml" value="0.2203125" />
@@ -15,21 +16,28 @@
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/drawable/ic_chat.xml" value="0.2703125" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/drawable/ic_grupo.xml" value="0.2703125" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/drawable/ic_iconoapp_background.xml" value="0.2703125" />
+        <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/drawable/ic_insignia_background.xml" value="0.14635416666666667" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/drawable/ic_picture1.xml" value="0.2703125" />
+        <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/drawable/ic_send.xml" value="0.2703125" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/drawable/ic_settings.xml" value="0.2703125" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/drawable/ic_tareas.xml" value="0.2703125" />
+        <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/activity_addmiembros.xml" value="0.25416666666666665" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/activity_test.xml" value="0.25416666666666665" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/chat_pantalla.xml" value="0.264" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/crear_usuario.xml" value="0.264" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/elemento_actividades.xml" value="0.22871376811594202" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/elemento_chats.xml" value="0.23324275362318841" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/elemento_equipos.xml" value="0.22871376811594202" />
+        <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/elemento_insignias.xml" value="0.264" />
+        <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/elemento_miembros.xml" value="0.20833333333333334" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/elemento_tareas.xml" value="0.22871376811594202" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/equipo_elemento.xml" value="0.4" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/estado_perfil.xml" value="0.23731884057971014" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/estilo_mensajes.xml" value="0.4" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/estilo_publicacionforo.xml" value="0.536" />
+        <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/estilo_spinner.xml" value="0.18568840579710144" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/foro_generalpantalla.xml" value="0.264" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/fragment_actividad.xml" value="0.22056159420289856" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/fragment_chat.xml" value="0.22056159420289856" />
@@ -41,12 +49,16 @@
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/fragmento_equipos.xml" value="0.264" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/fragmento_tareas.xml" value="0.264" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/list_element.xml" value="0.2" />
+        <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/lista_estados.xml" value="0.2028985507246377" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/menu_encabezado.xml" value="0.1" />
+        <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/pantalla_crearequipo.xml" value="0.2" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/pantalla_creartarea.xml" value="0.264" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/pantalla_equipos.xml" value="0.2" />
+        <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/pantalla_insignias.xml" value="0.20833333333333334" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/pantalla_mandar_tarea.xml" value="0.264" />
+        <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/pantalla_miembros.xml" value="0.20833333333333334" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/pantalla_perfil.xml" value="0.264" />
-        <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/pantalla_principal.xml" value="0.176" />
+        <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/pantalla_principal.xml" value="0.264" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/layout/toolbar.xml" value="0.24094202898550723" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/menu/bottom_navigation.xml" value="0.25416666666666665" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.25416666666666665" />
@@ -56,6 +68,8 @@
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/menu/menu_drawer.xml" value="0.25416666666666665" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/menu/menu_ocpionesforos.xml" value="0.25416666666666665" />
         <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/mipmap-anydpi-v26/ic_iconoapp_round.xml" value="0.2078125" />
+        <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/mipmap-anydpi-v26/ic_insignia.xml" value="0.14635416666666667" />
+        <entry key="..\:/Proyecto POI/LOGIN/app/src/main/res/mipmap-anydpi-v26/ic_insignia_round.xml" value="0.14635416666666667" />
         <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/activity_chats_test.xml" value="0.27291666666666664" />
         <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/activity_main.xml" value="0.19882246376811594" />
         <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/activity_test.xml" value="0.33" />

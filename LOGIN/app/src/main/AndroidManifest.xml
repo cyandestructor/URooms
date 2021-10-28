@@ -54,6 +54,26 @@
             android:name=".CrearTareaActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity
+            android:name=".InsigniasActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+        </activity>
+        <activity
+            android:name=".MiembrosActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+        </activity>
+        <activity
+            android:name=".AñadirMiembrosActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+        </activity>
+        <activity
+            android:name=".CrearEquipoActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

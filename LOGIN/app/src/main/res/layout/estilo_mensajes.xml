@@ -26,7 +26,7 @@
             android:padding="16dp">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/imagen_perfil_cuadro"
+                android:id="@+id/imagen_equipo_cuadro"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_alignParentStart="true"
@@ -36,7 +36,7 @@
                 app:cardCornerRadius="60dp">
 
                 <ImageView
-                    android:id="@+id/perfil_mensaje"
+                    android:id="@+id/icono_pic_grupo"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:scaleType="centerCrop"
@@ -49,7 +49,7 @@
                 android:layout_width="127dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="8dp"
-                android:layout_toEndOf="@+id/imagen_perfil_cuadro"
+                android:layout_toEndOf="@+id/imagen_equipo_cuadro"
                 android:text="Guillermo Rocha"
                 android:textColor="#2B2B2B" />
 

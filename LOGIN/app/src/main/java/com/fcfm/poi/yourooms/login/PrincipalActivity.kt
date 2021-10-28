@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,9 +27,9 @@ class PrincipalActivity:AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pantalla_principal)
 
-
+        setSupportActionBar(findViewById(R.id.toolbar2))
         setupNavigation()
-    }
+        }
 
     private fun setCurrentFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
@@ -80,8 +81,26 @@ class PrincipalActivity:AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_buscador, menu)
-
         return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when (item.itemId){
+            R.id.icon_1->{
+                startActivity(Intent(this, PerfilActivity::class.java))
+            }
+            R.id.icon_2->{
+                startActivity(Intent(this, PerfilActivity::class.java))
+            }
+            R.id.icon_3->{
+                startActivity(Intent(this, PerfilActivity::class.java))
+            }
+            R.id.icon_4->{
+                startActivity(Intent(this, MainActivity::class.java))
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
    /* private fun loadChatList() {
@@ -109,4 +128,5 @@ class PrincipalActivity:AppCompatActivity() {
             }
         }
     }*/
+
 }

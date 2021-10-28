@@ -1,7 +1,5 @@
 package com.fcfm.poi.yourooms.login.adapters
 
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,7 +14,7 @@ class ChatListAdapter(private val chatList: List<Chat>) : RecyclerView.Adapter<C
 
     class ChatHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(chat: Chat) {
-            itemView.findViewById<TextView>(R.id.chatName).text = chat.name
+            itemView.findViewById<TextView>(R.id.titulo_nombre).text = chat.name
             itemView.findViewById<TextView>(R.id.lastMessageBody).text = chat.lastMessage?.body
             itemView.tag = chat
 

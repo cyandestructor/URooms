@@ -79,7 +79,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
-        android:id="@+id/chatNameText"
+        android:id="@+id/creargpo_text"
         android:layout_width="250dp"
         android:layout_height="31dp"
         android:layout_marginStart="5dp"
@@ -104,7 +104,7 @@
         android:textSize="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar"
         app:layout_constraintStart_toEndOf="@+id/imageButton_return"
-        app:layout_constraintTop_toBottomOf="@+id/chatNameText" />
+        app:layout_constraintTop_toBottomOf="@+id/creargpo_text" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"

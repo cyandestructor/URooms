@@ -30,42 +30,16 @@
         <TextView
             android:id="@+id/titulo_nombre"
             android:layout_width="120dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="20dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
             android:layout_toRightOf="@+id/imagen_equipo_cuadro"
             android:text="Guille"
             android:textColor="#000000"
-            android:textSize="20sp">
+            android:textSize="40sp">
 
         </TextView>
 
-
-        <TextView
-            android:layout_width="80dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="95dp"
-            android:layout_marginTop="20dp"
-            android:layout_toRightOf="@+id/titulo_nombre"
-            android:text="2:30AM"
-            android:textColor="#8C8C8C"
-            android:textSize="12sp">
-
-        </TextView>
-
-        <TextView
-            android:id="@+id/lastMessageBody"
-            android:layout_width="226dp"
-            android:layout_height="28dp"
-            android:layout_below="@+id/titulo_nombre"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_toRightOf="@id/imagen_equipo_cuadro"
-            android:text="¿Donde estas perdida?"
-            android:textColor="#818181"
-            android:textSize="15sp">
-
-        </TextView>
 
     </RelativeLayout>
 

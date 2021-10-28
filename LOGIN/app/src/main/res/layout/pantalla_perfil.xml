@@ -11,7 +11,7 @@
         android:id="@+id/textView_Dependencia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="126dp"
+        android:layout_marginTop="80dp"
         android:text="FACULTAD DE CIENCIAS FISICOMATEMATICAS"
         android:textColor="#000000"
         android:textSize="10dp"
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="50dp"
         android:text="Dependencia:"
         android:textColor="#AFAFAF"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,7 +58,7 @@
         app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/imagen_perfil_cuadro"
+        android:id="@+id/imagen_equipo_cuadro"
         android:layout_width="165dp"
         android:layout_height="174dp"
         android:layout_marginBottom="20dp"
@@ -68,7 +68,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
-            android:id="@+id/perfil_mensaje"
+            android:id="@+id/icono_pic_grupo"
             android:layout_width="165dp"
             android:layout_height="174dp"
             android:scaleType="centerCrop"
@@ -96,7 +96,7 @@
         android:layout_width="390dp"
         android:layout_height="30dp"
         android:layout_marginStart="111dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="112dp"
         android:text="LIC. MULTIMEDIA Y ANIMACION DIGITAL"
         android:textAlignment="center"
@@ -112,12 +112,13 @@
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="55dp"
         android:layout_marginEnd="1dp"
         android:orientation="vertical"
-        android:visibility="visible"
         android:outlineSpotShadowColor="@color/morado_claro"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_carrera">
 
@@ -128,7 +129,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="5dp"
         android:text="Correo:"
         android:textColor="#AFAFAF"
         app:layout_constraintStart_toStartOf="parent"
@@ -138,20 +139,20 @@
         android:id="@+id/textView_Correo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="20dp"
         android:text="Guillermo.roch@gmail.com"
         android:textColor="#000000"
         app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/margen_perfil" />
 
     <ImageButton
-        android:id="@+id/imageButton_change"
+        android:id="@+id/imageButton_addpic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="250dp"
         android:backgroundTint="#00E254FF"
         android:minHeight="48dp"
-        app:layout_constraintStart_toEndOf="@+id/imagen_perfil_cuadro"
+        app:layout_constraintStart_toEndOf="@+id/imagen_equipo_cuadro"
         app:layout_constraintTop_toTopOf="@+id/imageView2"
         app:srcCompat="@drawable/ic_settings"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -167,6 +168,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView2"
         app:srcCompat="@drawable/ic_return"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/button_insignias"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/purple_700"
+        android:fontFamily="sans-serif-black"
+        android:text="INSIGNIAS"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_Dependencia" />
+
+    <Spinner
+        android:id="@+id/spinner_estado"
+        android:layout_width="280dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/estilo_spinner"
+        android:backgroundTint="@color/black"
+        app:circularflow_defaultRadius="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_carrera"
         tools:ignore="SpeakableTextPresentCheck" />
 
 

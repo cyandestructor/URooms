@@ -2,8 +2,6 @@ package com.fcfm.poi.yourooms.login
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.graphics.Color
-import android.media.Image
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -59,7 +57,7 @@ class ChatActivity : AppCompatActivity (){
         chatId = intent.getStringExtra("chatId")
         val chatName = intent.getStringExtra("chatName")
 
-        findViewById<TextView>(R.id.chatNameText).text = chatName
+        findViewById<TextView>(R.id.creargpo_text).text = chatName
 
         if (chatId != null) {
             CoroutineScope(Dispatchers.Main).launch {

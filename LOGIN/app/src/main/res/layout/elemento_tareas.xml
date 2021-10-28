@@ -12,7 +12,7 @@
         android:background="#ffffff">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/imagen_perfil_cuadro"
+            android:id="@+id/imagen_equipo_cuadro"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="20dp"
@@ -20,7 +20,7 @@
             app:cardCornerRadius="60dp">
 
             <ImageView
-                android:id="@+id/perfil_mensaje"
+                android:id="@+id/icono_pic_grupo"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:scaleType="centerCrop"
@@ -33,7 +33,7 @@
             android:layout_height="27dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="20dp"
-            android:layout_toRightOf="@+id/imagen_perfil_cuadro"
+            android:layout_toRightOf="@+id/imagen_equipo_cuadro"
             android:text="CLASE ORDINARIA POI"
             android:textColor="#000000"
             android:textSize="20sp">
@@ -64,7 +64,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
-            android:layout_toEndOf="@id/imagen_perfil_cuadro"
+            android:layout_toEndOf="@id/imagen_equipo_cuadro"
             android:text=" Entrega de PIA"
             android:textColor="#590C0C"
             android:textSize="15sp">
@@ -78,7 +78,7 @@
             android:layout_below="@+id/texto_info"
             android:layout_marginLeft="-26dp"
             android:layout_marginTop="-15dp"
-            android:layout_toRightOf="@id/imagen_perfil_cuadro"
+            android:layout_toRightOf="@id/imagen_equipo_cuadro"
             android:text="Vence el 13 de Junio"
             android:textColor="#818181"
             android:textSize="15sp">

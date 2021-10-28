@@ -15,11 +15,11 @@
         android:layout_marginTop="24dp"
         android:text="Guillermo Rocha."
         android:textSize="30dp"
-        app:layout_constraintStart_toEndOf="@+id/imagen_perfil_cuadro"
+        app:layout_constraintStart_toEndOf="@+id/imagen_equipo_cuadro"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/imagen_perfil_cuadro"
+        android:id="@+id/imagen_equipo_cuadro"
         android:layout_width="80dp"
         android:layout_height="80dp"
         app:cardCornerRadius="80dp"
@@ -27,7 +27,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/perfil_mensaje"
+            android:id="@+id/icono_pic_grupo"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:scaleType="centerCrop"
