@@ -8,10 +8,13 @@ import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.fcfm.poi.yourooms.login.adapters.ChatListAdapter
+import com.fcfm.poi.yourooms.login.adapters.EquiposListAdapter
 import com.fcfm.poi.yourooms.login.authentication.AuthenticationManager
 import com.fcfm.poi.yourooms.login.data.models.Chat
+import com.fcfm.poi.yourooms.login.data.models.Room
 import com.fcfm.poi.yourooms.login.data.models.dao.ChatDao
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.CoroutineScope
@@ -26,6 +29,19 @@ class PrincipalActivity:AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pantalla_principal)
+
+//-----------------------------
+
+
+     /*   val recyclerView =findViewById<RecyclerView>(R.id.Lista_equipos)
+        val adapter = EquiposListAdapter()
+
+
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = adapter
+*/
+
+        //-------------------
 
         setSupportActionBar(findViewById(R.id.toolbar2))
         setupNavigation()
