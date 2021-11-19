@@ -39,7 +39,6 @@ class EquiposListAdapter(private val equioList: List<Room>) : RecyclerView.Adapt
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        TODO("Not yet implemented")
        // holder.bind(EquiposList[position])
         holder.itemTitle.text = name[position]
         holder.itemImage.setImageResource(image[position])
