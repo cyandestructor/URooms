@@ -32,6 +32,11 @@ class MainActivity : AppCompatActivity() {
             login(it)
         }
 
+        findViewById<Button>(R.id.boton_registrarse).setOnClickListener {
+            val i = Intent(this@MainActivity, CrearActivity::class.java)
+            startActivity(i)
+        }
+
     }
 
     private fun login(it: View) {
@@ -52,6 +57,7 @@ class MainActivity : AppCompatActivity() {
                 else {
                     Toast.makeText(applicationContext, "Incorrect credentials", Toast.LENGTH_SHORT).show()
                 }
+                it.isEnabled = true
             }
         }
     }
