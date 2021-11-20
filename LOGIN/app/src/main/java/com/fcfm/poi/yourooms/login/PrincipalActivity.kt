@@ -17,6 +17,7 @@ import com.fcfm.poi.yourooms.login.data.models.Chat
 import com.fcfm.poi.yourooms.login.data.models.Room
 import com.fcfm.poi.yourooms.login.data.models.dao.ChatDao
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -24,28 +25,29 @@ import kotlinx.coroutines.withContext
 import java.util.*
 
 class PrincipalActivity:AppCompatActivity() {
-    //private lateinit var chatRecyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pantalla_principal)
 
-//-----------------------------
-
-
-     /*   val recyclerView =findViewById<RecyclerView>(R.id.Lista_equipos)
-        val adapter = EquiposListAdapter()
-
-
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = adapter
-*/
-
-        //-------------------
-
         setSupportActionBar(findViewById(R.id.toolbar2))
         setupNavigation()
+
+        findViewById<FloatingActionButton>(R.id.boton_flotante).setOnClickListener {
+            val toolView: Toolbar = findViewById(R.id.toolbar2)
+            val title = toolView.title
+
+            when (title) {
+                "Equipo" -> loadCreateRoomScreen()
+            }
         }
+
+    }
+
+    private fun loadCreateRoomScreen() {
+        val i = Intent(this, CrearEquipoActivity::class.java)
+        startActivity(i)
+    }
 
     private fun setCurrentFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
@@ -53,7 +55,6 @@ class PrincipalActivity:AppCompatActivity() {
             commit()
         }
     }
-
 
     private fun setupNavigation() {
         val navView: BottomNavigationView = findViewById(R.id.bottom_navigati)
@@ -118,31 +119,5 @@ class PrincipalActivity:AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-
-   /* private fun loadChatList() {
-        chatRecyclerView = findViewById(R.id.Lista_chats)
-        chatRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-
-        CoroutineScope(Dispatchers.IO).launch {
-            val currentUser = AuthenticationManager().getCurrentUser()
-            if (currentUser != null) {
-                val userId = currentUser.uid
-                val userChats = ChatDao().getUserChats(userId)
-
-                val chatListAdapter = ChatListAdapter(userChats)
-                chatListAdapter.setOnClickListener {
-                    val chat = it.tag as Chat
-                    val i = Intent(this@PrincipalActivity, ChatActivity::class.java)
-                    i.putExtra("chatId", chat.id)
-                    i.putExtra("chatName", chat.name)
-                    startActivity(i)
-                }
-
-                withContext(Dispatchers.Main) {
-                    chatRecyclerView.adapter = chatListAdapter
-                }
-            }
-        }
-    }*/
 
 }

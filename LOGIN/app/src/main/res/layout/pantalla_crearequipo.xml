@@ -46,64 +46,56 @@
         app:layout_constraintStart_toEndOf="@+id/imageButton_return"
         app:layout_constraintTop_toTopOf="@+id/toolbar" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/imagen_equipo_cuadro"
-        android:layout_width="165dp"
-        android:layout_height="174dp"
-        android:layout_marginTop="70dp"
-        app:cardCornerRadius="80dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
-
-        <ImageView
-            android:id="@+id/icono_pic_grupo"
-            android:layout_width="165dp"
-            android:layout_height="174dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/foto_perfil" />
-    </androidx.cardview.widget.CardView>
 
     <ImageButton
         android:id="@+id/imageButton_addpic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
         android:backgroundTint="#00E254FF"
         android:minHeight="48dp"
-        app:layout_constraintStart_toEndOf="@+id/imagen_equipo_cuadro"
-        app:layout_constraintTop_toTopOf="@+id/toolbar"
+        android:tint="#4C4C4C"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/ic_baseline_camera"
         tools:ignore="SpeakableTextPresentCheck" />
-
 
     <Button
         android:id="@+id/button_creargpo"
         android:layout_width="140dp"
         android:layout_height="51dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginBottom="272dp"
+        android:layout_marginTop="24dp"
         android:background="@color/purple_500"
-        android:backgroundTint="@color/black"
         android:text="Crear grupo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/add_nombre"
+        app:layout_constraintStart_toStartOf="@+id/add_nombre"
+        app:layout_constraintTop_toBottomOf="@+id/add_nombre" />
 
     <EditText
         android:id="@+id/add_nombre"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
+        android:hint="Nombre del Equipo"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="Nombre de grupo"
-        app:layout_constraintBottom_toTopOf="@+id/button_creargpo"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="141dp"
+        android:layout_height="141dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:srcCompat="@drawable/foto_perfil" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

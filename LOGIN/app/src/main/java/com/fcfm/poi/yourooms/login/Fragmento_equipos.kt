@@ -1,7 +1,6 @@
 package com.fcfm.poi.yourooms.login
 
 import android.content.Intent
-import android.icu.text.CaseMap
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -34,14 +33,14 @@ class Fragmento_equipos: Fragment(R.layout.fragmento_equipos) {
             val currentUser = AuthenticationManager().getCurrentUser()
             if (currentUser != null) {
                 val userId = currentUser.uid
-                val userequipo = RoomDao().getUserRooms(userId)
+                val rooms = RoomDao().getUserRooms(userId)
 
-                val equipoListAdapter = EquiposListAdapter(userequipo)
+                val equipoListAdapter = EquiposListAdapter(rooms)
                 equipoListAdapter.setOnClickListener{
                     val equipo = it.tag as Room
-                    val i = Intent(activity, ForoGenActivity::class.java)
-                    i.putExtra("equipoId", equipo.id)
-                    i.putExtra("equipoName", equipo.name)
+                    val i = Intent(activity, ChannelsActivity::class.java)
+                    i.putExtra("roomId", equipo.id)
+                    i.putExtra("roomName", equipo.name)
                     startActivity(i)
                 }
 
