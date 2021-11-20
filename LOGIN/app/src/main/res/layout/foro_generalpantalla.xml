@@ -52,20 +52,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/menu_ocpionesforos"/>
-
-    <ImageButton
-        android:id="@+id/imageButton_return"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
-        android:backgroundTint="#00FFFFFF"
-        android:minHeight="48dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar"
-        app:srcCompat="@drawable/ic_return"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:menu="@menu/menu_ocpionesforos"
+        app:title="Canal" />
 
     <ImageButton
         android:id="@+id/imageButtonCamera"
@@ -81,32 +69,16 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
-        android:id="@+id/creargpo_text"
-        android:layout_width="250dp"
-        android:layout_height="31dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginBottom="20dp"
-        android:fontFamily="sans-serif-light"
-        android:text="Canal"
-        android:textColor="@color/white"
-        android:textSize="25dp"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
-        app:layout_constraintStart_toEndOf="@+id/imageButton_return" />
-
-    <TextView
         android:id="@+id/channel_room_name"
         android:layout_width="250dp"
         android:layout_height="13dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="3dp"
         android:layout_marginBottom="4dp"
         android:fontFamily="sans-serif-light"
         android:text="POI GPO 01 2021"
         android:textColor="@color/white"
         android:textSize="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar"
-        app:layout_constraintStart_toEndOf="@+id/imageButton_return"
-        app:layout_constraintTop_toBottomOf="@+id/creargpo_text" />
+        tools:layout_editor_absoluteX="16dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/post_list"

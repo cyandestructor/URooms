@@ -78,6 +78,7 @@
         <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/chat_pantalla.xml" value="0.4767970882620564" />
         <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/crear_usuario.xml" value="0.33" />
         <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/elemento_actividades.xml" value="0.26992753623188404" />
+        <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/elemento_chats.xml" value="0.2653985507246377" />
         <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/elemento_equipos.xml" value="0.27291666666666664" />
         <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/elemento_insignias.xml" value="0.26992753623188404" />
         <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/elemento_miembros.xml" value="0.26992753623188404" />
@@ -92,9 +93,12 @@
         <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/menu_encabezado.xml" value="0.19882246376811594" />
         <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/pantalla_crearequipo.xml" value="0.27291666666666664" />
         <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/pantalla_creartarea.xml" value="0.19882246376811594" />
+        <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/pantalla_insignias.xml" value="0.2653985507246377" />
         <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/pantalla_mandar_tarea.xml" value="0.19882246376811594" />
+        <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/pantalla_miembros.xml" value="0.2653985507246377" />
         <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/pantalla_perfil.xml" value="0.19882246376811594" />
         <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/pantalla_principal.xml" value="0.32459425717852686" />
+        <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/menu/menu_ocpionesforos.xml" value="0.27291666666666664" />
       </map>
     </option>
   </component>

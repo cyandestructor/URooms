@@ -1,10 +1,14 @@
 package com.fcfm.poi.yourooms.login
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.fcfm.poi.yourooms.login.adapters.PostListAdapter
@@ -29,8 +33,11 @@ class ForoGenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.foro_generalpantalla)
 
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
         val channelName = intent.getStringExtra("channelName")
-        findViewById<TextView>(R.id.creargpo_text).text = channelName
+        toolbar.title = channelName
 
         val roomName = intent.getStringExtra("roomName")
         findViewById<TextView>(R.id.channel_room_name).text = roomName
@@ -39,6 +46,21 @@ class ForoGenActivity : AppCompatActivity() {
         btnSendPost.setOnClickListener {
             sendPost(it)
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_ocpionesforos, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.icon_2 -> {
+                startActivity(Intent(this, CrearTareaActivity::class.java))
+            }
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onStart() {
@@ -53,7 +75,7 @@ class ForoGenActivity : AppCompatActivity() {
         }
     }
 
-    fun loadPosts() {
+    private fun loadPosts() {
         postsRecyclerView = findViewById(R.id.post_list)
         postsRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true)
 
