@@ -10,37 +10,23 @@
         android:id="@+id/textView_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
         android:fontFamily="sans-serif-medium"
-        android:textColor="#C1C1C1"
         android:text="Fecha de vencimiento"
+        android:textColor="#C1C1C1"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTime"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/edit_assignment_due_date"
+        app:layout_constraintStart_toStartOf="@+id/edit_assignment_due_date" />
 
     <TextView
         android:id="@+id/textView_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
         android:fontFamily="sans-serif-medium"
         android:text="Puntos"
         android:textColor="#C1C1C1"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumber"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="Instrucciones"
-        android:textColor="#C1C1C1"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintBottom_toTopOf="@+id/edit_assignment_score"
+        app:layout_constraintStart_toStartOf="@+id/edit_assignment_score" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -52,52 +38,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        />
-
-    <ImageButton
-        android:id="@+id/imageButton_return"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
-        android:backgroundTint="#00FFFFFF"
-        android:minHeight="48dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar"
-        app:srcCompat="@drawable/ic_return"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <TextView
-        android:id="@+id/creargpo_text"
-        android:layout_width="250dp"
-        android:layout_height="31dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginBottom="13dp"
-        android:fontFamily="sans-serif-light"
-        android:text="Crear Tarea"
-        android:textColor="@color/white"
-        android:textSize="25dp"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
-        app:layout_constraintStart_toEndOf="@+id/imageButton_return" />
+        app:title="Crear tarea" />
 
     <Button
         android:id="@+id/btn_AsignTar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="96dp"
+        android:layout_marginTop="24dp"
         android:background="@color/purple_500"
         android:text="Asignar tarea"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/edit_assignment_due_date"
+        app:layout_constraintTop_toBottomOf="@+id/edit_assignment_due_date" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/edit_assignment_name"
         android:layout_width="280dp"
         android:layout_height="48dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="32dp"
         android:backgroundTint="@color/purple_700"
         android:ems="10"
         android:inputType="textPersonName"
@@ -107,65 +66,65 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/edit_assignment_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="32dp"
         android:backgroundTint="@color/purple_700"
         android:ems="10"
         android:inputType="number"
         android:minHeight="48dp"
         android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+        app:layout_constraintStart_toStartOf="@+id/edit_assignment_description"
+        app:layout_constraintTop_toBottomOf="@+id/edit_assignment_description"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
-        android:id="@+id/editTextTime"
+        android:id="@+id/edit_assignment_due_date"
         android:layout_width="280dp"
         android:layout_height="48dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:backgroundTint="@color/purple_700"
         android:ems="10"
-        android:inputType="time"
+        android:focusable="false"
+        android:inputType="date"
         android:minHeight="48dp"
         android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber"
+        app:layout_constraintStart_toStartOf="@+id/edit_assignment_score"
+        app:layout_constraintTop_toBottomOf="@+id/edit_assignment_score"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/textView_titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
         android:fontFamily="sans-serif-medium"
         android:text="Titulo"
         android:textColor="#C1C1C1"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/edit_assignment_name"
+        app:layout_constraintStart_toStartOf="@+id/edit_assignment_name" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
-        android:layout_width="300dp"
+    <EditText
+        android:id="@+id/edit_assignment_description"
+        android:layout_width="284dp"
+        android:layout_height="122dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintStart_toStartOf="@+id/edit_assignment_name"
+        app:layout_constraintTop_toBottomOf="@+id/edit_assignment_name" />
+
+    <TextView
+        android:id="@+id/textView_2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
-        app:cardCornerRadius="20dp"
-        >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="300dp"
-            android:layout_height="144dp"
-            android:background="#E6E6E6"
-            android:textColor="#000000"
-            app:cardCornerRadius="20dp"
-            tools:ignore="SpeakableTextPresentCheck" />
-    </com.google.android.material.textfield.TextInputLayout>
+        android:fontFamily="sans-serif-medium"
+        android:text="Instrucciones"
+        android:textColor="#C1C1C1"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/edit_assignment_description"
+        app:layout_constraintStart_toStartOf="@+id/edit_assignment_description" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

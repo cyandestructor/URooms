@@ -10,5 +10,6 @@ data class Assignment(
     val postDate: Date? = null,
     val poster: User? = null,
     val group: Group? = null,
-    val hasMultimedia: Boolean? = false
+    val hasMultimedia: Boolean? = false,
+    val score: Int? = 0
 )

@@ -28,6 +28,7 @@ class ForoGenActivity : AppCompatActivity() {
     private var postListAdapter : PostListAdapter? = null
     private var roomId : String? = null
     private var channelId : String? = null
+    private var channelName : String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +37,7 @@ class ForoGenActivity : AppCompatActivity() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        val channelName = intent.getStringExtra("channelName")
+        channelName = intent.getStringExtra("channelName")
         toolbar.title = channelName
 
         val roomName = intent.getStringExtra("roomName")
@@ -56,7 +57,10 @@ class ForoGenActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.icon_2 -> {
-                startActivity(Intent(this, CrearTareaActivity::class.java))
+                val i = Intent(this, CrearTareaActivity::class.java)
+                i.putExtra("channelId", channelId!!)
+                i.putExtra("channelName", channelName!!)
+                startActivity(i)
             }
         }
 

@@ -17,6 +17,7 @@ class AssignmentDao {
             "description" to assignment.description,
             "dueDate" to assignment.dueDate,
             "postDate" to assignment.postDate,
+            "score" to assignment.score,
             "hasMultimedia" to assignment.hasMultimedia,
             "poster" to hashMapOf(
                 "id" to assignment.poster?.id,
@@ -68,7 +69,8 @@ class AssignmentDao {
                         document.getString("group.name"),
                         document.getString("group.image")
                     ),
-                    document.getBoolean("hasMultimedia")
+                    document.getBoolean("hasMultimedia"),
+                    document.getLong("score")?.toInt()
                 )
 
                 assignments += assignment
