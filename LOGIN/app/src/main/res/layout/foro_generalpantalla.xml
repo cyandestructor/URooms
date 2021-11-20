@@ -8,12 +8,12 @@
 
     <EditText
         android:id="@+id/Edit_mensaje"
-        android:layout_width="250dp"
-        android:layout_height="48dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:backgroundTint="@color/purple_700"
         android:ems="10"
+        android:hint="Haz una publicación"
         android:inputType="textPersonName"
-        android:text="Haz una publicación"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageButton_adjfile"
@@ -23,10 +23,11 @@
         android:id="@+id/imageButton_sendmess"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:backgroundTint="@color/purple_500"
 
+        android:backgroundTint="@color/purple_500"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/Edit_mensaje"
         app:srcCompat="@drawable/ic_send"
         tools:ignore="SpeakableTextPresentCheck" />
 
@@ -37,6 +38,7 @@
         android:backgroundTint="@color/purple_500"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageButton_sendmess"
+        app:layout_constraintTop_toTopOf="@+id/Edit_mensaje"
         app:srcCompat="@drawable/ic_adjfile"
         tools:ignore="SpeakableTextPresentCheck" />
 
@@ -107,13 +109,14 @@
         app:layout_constraintTop_toBottomOf="@+id/creargpo_text" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="625dp"
-        android:layout_marginStart="1dp"
+        android:id="@+id/post_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/Edit_mensaje"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        tools:listitem="@layout/estilo_publicacionforo"
-        />
+        tools:listitem="@layout/estilo_publicacionforo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

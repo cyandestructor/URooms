@@ -44,6 +44,7 @@ class ChannelsActivity : AppCompatActivity() {
                 i.putExtra("channelId", channel.id)
                 i.putExtra("channelName", channel.name)
                 i.putExtra("roomName", roomName)
+                i.putExtra("roomId", roomId)
                 startActivity(i)
             }
 

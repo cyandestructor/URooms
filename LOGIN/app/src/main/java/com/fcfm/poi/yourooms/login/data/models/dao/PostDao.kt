@@ -4,11 +4,14 @@ import android.content.ContentValues
 import android.util.Log
 import com.fcfm.poi.yourooms.login.data.models.Post
 import com.fcfm.poi.yourooms.login.data.models.User
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.tasks.await
+import java.util.*
 
 class PostDao {
     private val db: FirebaseFirestore = Firebase.firestore
@@ -40,12 +43,46 @@ class PostDao {
         }
     }
 
+    suspend fun getChannelPosts(roomId: String, channelId: String) : List<Post> {
+        val posts = mutableListOf<Post>()
+
+        try {
+            val result = db.collection("rooms/${roomId}/channels/${channelId}/posts")
+                .orderBy("date", Query.Direction.DESCENDING)
+                .get()
+                .await()
+
+            for (document in result.documents) {
+                val post = Post(
+                    document.id,
+                    document.getString("body"),
+                    document.getTimestamp("date"),
+                    User(
+                        document.getString("poster.id"),
+                        document.getString("poster.name"),
+                        document.getString("poster.lastname"),
+                        document.getString("poster.image")
+                    ),
+                    document.getBoolean("hasMultimedia")
+                )
+
+                posts += post
+            }
+        }
+        catch (e: Exception) {
+            // TODO : Print error msg
+        }
+
+        return posts
+    }
+
     fun listenPosts(roomId: String, channelId: String, onUpdate: (List<Post>) -> Unit) {
         // Remove previous listener if exists
         val key = "${roomId}/${channelId}";
         postListenerRegistrations[key]?.remove()
 
         db.collection("rooms/${roomId}/channels/${channelId}/posts")
+            .whereGreaterThanOrEqualTo("date", Timestamp.now())
             .orderBy("date")
             .addSnapshotListener { value, error ->
                 if (error != null) {
@@ -59,7 +96,7 @@ class PostDao {
                     val post = Post(
                         document.id,
                         document.getString("body"),
-                        document.getDate("date"),
+                        document.getTimestamp("date"),
                         User(
                             document.getString("poster.id"),
                             document.getString("poster.name"),
