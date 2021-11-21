@@ -56,6 +56,12 @@ class ForoGenActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
+            R.id.icon_1 -> {
+                val i = Intent(this, MiembrosActivity::class.java)
+                i.putExtra("roomId", roomId!!)
+                i.putExtra("channelId", channelId!!)
+                startActivity(i)
+            }
             R.id.icon_2 -> {
                 val i = Intent(this, CrearTareaActivity::class.java)
                 i.putExtra("channelId", channelId!!)

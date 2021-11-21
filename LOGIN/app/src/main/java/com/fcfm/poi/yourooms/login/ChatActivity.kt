@@ -3,9 +3,12 @@ package com.fcfm.poi.yourooms.login
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.fcfm.poi.yourooms.login.adapters.MessageListAdapter
@@ -33,10 +36,29 @@ class ChatActivity : AppCompatActivity (){
             sendMessage(it)
         }
 
-        findViewById<ImageButton>(R.id.imageButton_return).setOnClickListener{
-        val pantallainic = Intent(this,PrincipalActivity::class.java)
-            startActivity(pantallainic)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
+        chatId = intent.getStringExtra("chatId")
+        val chatName = intent.getStringExtra("chatName")
+        supportActionBar?.title = chatName
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_room_options, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.opt_members -> {
+                val i = Intent(this, MiembrosActivity::class.java)
+                i.putExtra("chatId", chatId!!)
+                startActivity(i)
+            }
         }
+
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onStart() {
@@ -54,10 +76,6 @@ class ChatActivity : AppCompatActivity (){
     private fun loadMessages() {
         messageRecyclerView = findViewById(R.id.messageRecyclerView)
         messageRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true)
-        chatId = intent.getStringExtra("chatId")
-        val chatName = intent.getStringExtra("chatName")
-
-        findViewById<TextView>(R.id.creargpo_text).text = chatName
 
         if (chatId != null) {
             CoroutineScope(Dispatchers.Main).launch {

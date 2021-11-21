@@ -49,66 +49,8 @@
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/imageButton_return"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:backgroundTint="#00FFFFFF"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar"
-        app:srcCompat="@drawable/ic_return"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <ImageButton
-        android:id="@+id/imageButtonCamera"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="#00FFFFFF"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
-        app:layout_constraintEnd_toEndOf="@+id/toolbar"
-        app:layout_constraintTop_toTopOf="@+id/toolbar"
-        app:srcCompat="@drawable/ic_camera"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <androidx.cardview.widget.CardView
-
-        android:id="@+id/imagen_equipo_cuadro"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        app:cardCornerRadius="60dp"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
-        app:layout_constraintStart_toEndOf="@+id/imageButton_return"
-        app:layout_constraintTop_toTopOf="@+id/toolbar">
-
-        <ImageView
-            android:id="@+id/icono_pic_grupo"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/foto_perfil" />
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/creargpo_text"
-        android:layout_width="227dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="5dp"
-        android:fontFamily="sans-serif-light"
-        android:text="Guillermo Rocha"
-        android:textColor="@color/white"
-        android:textSize="25dp"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
-        app:layout_constraintStart_toEndOf="@+id/imagen_equipo_cuadro"
-        app:layout_constraintTop_toTopOf="@+id/toolbar" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/menu_chat_options" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/messageRecyclerView"

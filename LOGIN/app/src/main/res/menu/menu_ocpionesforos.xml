@@ -4,8 +4,7 @@
         android:id="@+id/icon_1"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_dehaze_24"
-        android:title="Grupos"
-        />
+        android:title="Miembros" />
 
     <item
         android:id="@+id/icon_2"

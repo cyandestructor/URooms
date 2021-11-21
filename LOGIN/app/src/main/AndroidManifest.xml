@@ -69,7 +69,7 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
         <activity
-            android:name=".AñadirMiembrosActivity"
+            android:name=".AddMembersActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
