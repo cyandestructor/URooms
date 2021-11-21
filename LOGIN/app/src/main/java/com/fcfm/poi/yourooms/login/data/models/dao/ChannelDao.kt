@@ -39,6 +39,7 @@ class ChannelDao {
             }
 
             val data = hashMapOf(
+                "id" to channelDocument.id,
                 "name" to channel.name,
                 "members" to membersIds,
             )
