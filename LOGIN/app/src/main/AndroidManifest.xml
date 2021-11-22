@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.fcfm.poi.yourooms.login" >
+    package="com.fcfm.poi.yourooms.login">
 
     <application
         android:allowBackup="true"
@@ -8,7 +8,11 @@
         android:label="URooms"
         android:roundIcon="@mipmap/ic_iconoapp_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".AddChannelActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".ChannelsActivity"
             android:exported="true"
@@ -16,12 +20,11 @@
         <activity
             android:name=".Test"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.NoActionBar" >
-        </activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.NoActionBar" >
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,13 +34,11 @@
         <activity
             android:name=".CrearActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.NoActionBar" >
-        </activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity
             android:name=".PrincipalActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.NoActionBar" >
-        </activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity
             android:name=".PerfilActivity"
             android:exported="true"
@@ -61,23 +62,19 @@
         <activity
             android:name=".InsigniasActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.NoActionBar" >
-        </activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity
             android:name=".MiembrosActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.NoActionBar" >
-        </activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity
             android:name=".AddMembersActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.NoActionBar" >
-        </activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity
             android:name=".CrearEquipoActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.NoActionBar" >
-        </activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
     </application>
 
 </manifest>

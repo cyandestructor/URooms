@@ -45,7 +45,7 @@ class ChatActivity : AppCompatActivity (){
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_room_options, menu)
+        menuInflater.inflate(R.menu.menu_chat_options, menu)
         return super.onCreateOptionsMenu(menu)
     }
 

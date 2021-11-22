@@ -32,7 +32,7 @@ class ChannelsActivity : AppCompatActivity() {
 
         roomId = intent.getStringExtra("roomId")
         roomName = intent.getStringExtra("roomName")
-        toolbar.title = roomName
+        supportActionBar?.title = roomName
 
         channelsRecyclerView = findViewById(R.id.channels_list)
         channelsRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
@@ -41,7 +41,7 @@ class ChannelsActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_chat_options, menu)
+        menuInflater.inflate(R.menu.menu_room_options, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -51,6 +51,11 @@ class ChannelsActivity : AppCompatActivity() {
                 val i = Intent(this, MiembrosActivity::class.java)
                 i.putExtra("groupId", roomId!!)
                 i.putExtra("type", "room")
+                startActivity(i)
+            }
+            R.id.opt_add_channel -> {
+                val i = Intent(this, AddChannelActivity::class.java)
+                i.putExtra("roomId", roomId!!)
                 startActivity(i)
             }
         }

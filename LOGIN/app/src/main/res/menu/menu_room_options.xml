@@ -2,6 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/opt_add_channel"
+        android:title="Agregar Canal" />
+    <item
         android:id="@+id/opt_members"
         android:title="Miembros" />
 </menu>
