@@ -2,8 +2,11 @@ package com.fcfm.poi.yourooms.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.fcfm.poi.yourooms.login.adapters.MemberListAdapter
@@ -24,6 +27,7 @@ class MiembrosActivity : AppCompatActivity(){
     private lateinit var membersRecyclerView: RecyclerView
     private var groupId : String? = null
     private var type : String? = null
+    private val memberIds : MutableList<String> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +35,9 @@ class MiembrosActivity : AppCompatActivity(){
 
         membersRecyclerView = findViewById(R.id.MiembrosRecyclerView)
         membersRecyclerView.layoutManager = LinearLayoutManager(this)
+
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
 
         groupId = intent.getStringExtra("groupId")
         type = intent.getStringExtra("type")
@@ -57,11 +64,34 @@ class MiembrosActivity : AppCompatActivity(){
         }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_members, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.opt_send_email -> {
+                val i = Intent(this, SendEmailActivity::class.java)
+                i.putExtra("ids", memberIds.toTypedArray())
+                startActivity(i)
+            }
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
     private fun loadChannelMembers() {
         CoroutineScope(Dispatchers.IO).launch {
             val roomId = intent.getStringExtra("roomId")
             if (roomId != null) {
                 val members = ChannelDao().getChannelMembers(roomId, groupId!!)
+
+                for (member in members) {
+                    if (member.id != null) {
+                        memberIds += member.id
+                    }
+                }
 
                 val memberListAdapter = MemberListAdapter(members)
 
@@ -81,7 +111,14 @@ class MiembrosActivity : AppCompatActivity(){
         CoroutineScope(Dispatchers.IO).launch {
             val members = RoomDao().getRoomMembers(groupId!!)
 
+            for (member in members) {
+                if (member.id != null) {
+                    memberIds += member.id
+                }
+            }
+
             val memberListAdapter = MemberListAdapter(members)
+
 
             memberListAdapter.setOnClickListener {
                 val user = it.tag as User
@@ -97,6 +134,12 @@ class MiembrosActivity : AppCompatActivity(){
     private fun loadChatMembers() {
         CoroutineScope(Dispatchers.IO).launch {
             val members = ChatDao().getChatMembers(groupId!!)
+
+            for (member in members) {
+                if (member.id != null) {
+                    memberIds += member.id
+                }
+            }
 
             val memberListAdapter = MemberListAdapter(members)
 

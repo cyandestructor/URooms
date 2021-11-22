@@ -13,6 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".SendEmailActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
             android:name=".ContainerFilesActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar" />

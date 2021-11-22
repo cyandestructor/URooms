@@ -76,6 +76,7 @@
         <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/activity_chats_test.xml" value="0.27291666666666664" />
         <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/activity_container_files.xml" value="0.21" />
         <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/activity_send_email.xml" value="0.25885416666666666" />
         <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/activity_test.xml" value="0.33" />
         <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/chat_pantalla.xml" value="0.33" />
         <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/crear_usuario.xml" value="0.33" />
@@ -102,6 +103,7 @@
         <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/layout/pantalla_principal.xml" value="0.32459425717852686" />
         <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/menu/main_buscador.xml" value="0.27291666666666664" />
         <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/menu/menu_chat_options.xml" value="0.27291666666666664" />
+        <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/menu/menu_members.xml" value="0.27291666666666664" />
         <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/menu/menu_ocpionesforos.xml" value="0.27291666666666664" />
         <entry key="..\:/dev/URooms/LOGIN/app/src/main/res/menu/menu_room_options.xml" value="0.27291666666666664" />
       </map>
