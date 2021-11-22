@@ -12,7 +12,7 @@ class AssignmentResponseDao {
 
     suspend fun addAssignmentResponse(assignmentResponse: AssignmentResponse): String? {
         val data = hashMapOf(
-            "data" to assignmentResponse.date,
+            "date" to assignmentResponse.date,
             "hasMultimedia" to assignmentResponse.hasMultimedia,
             "user" to hashMapOf(
                 "id" to assignmentResponse.user?.id,
