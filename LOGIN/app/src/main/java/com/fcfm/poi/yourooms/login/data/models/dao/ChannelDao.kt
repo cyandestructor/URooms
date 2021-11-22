@@ -169,16 +169,12 @@ class ChannelDao {
 
         val channelMembers = channel.collection("members")
 
-        val membersIds = mutableListOf<String>()
-
         val batch = db.batch()
 
         return try {
             // Create a member in the Channel members subcollection
             for (member in members) {
                 if (member.id != null) {
-                    membersIds += member.id
-
                     val data = hashMapOf(
                         "name" to member.name,
                         "lastname" to member.lastname,
@@ -187,10 +183,10 @@ class ChannelDao {
 
                     val memberDocument = channelMembers.document(member.id)
                     batch.set(memberDocument, data)
+
+                    batch.update(channel, "members", FieldValue.arrayUnion(member.id))
                 }
             }
-
-            batch.update(channel, "members", FieldValue.arrayUnion(membersIds))
 
             batch.commit().await()
 

@@ -1,5 +1,6 @@
 package com.fcfm.poi.yourooms.login
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -8,6 +9,7 @@ import com.fcfm.poi.yourooms.login.adapters.MemberListAdapter
 import com.fcfm.poi.yourooms.login.data.models.dao.ChannelDao
 import com.fcfm.poi.yourooms.login.data.models.dao.ChatDao
 import com.fcfm.poi.yourooms.login.data.models.dao.RoomDao
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -16,6 +18,7 @@ import kotlinx.coroutines.withContext
 class MiembrosActivity : AppCompatActivity(){
     private lateinit var membersRecyclerView: RecyclerView
     private var groupId : String? = null
+    private var type : String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,22 +27,28 @@ class MiembrosActivity : AppCompatActivity(){
         membersRecyclerView = findViewById(R.id.MiembrosRecyclerView)
         membersRecyclerView.layoutManager = LinearLayoutManager(this)
 
-        groupId = intent.getStringExtra("channelId")
-        if (groupId != null) {
-            loadChannelMembers()
-            return
-        }
+        groupId = intent.getStringExtra("groupId")
+        type = intent.getStringExtra("type")
 
-        groupId = intent.getStringExtra("roomId")
-        if (groupId != null) {
-            loadRoomMembers()
-            return
-        }
+        if (groupId != null && type != null) {
+            when(type) {
+                "channel" -> loadChannelMembers()
+                "room" -> loadRoomMembers()
+                "chat" -> loadChatMembers()
+            }
 
-        groupId = intent.getStringExtra("chatId")
-        if (groupId != null) {
-            loadChatMembers()
-            return
+            findViewById<FloatingActionButton>(R.id.add_member).setOnClickListener {
+                val i = Intent(this, AddMembersActivity::class.java)
+                i.putExtra("groupId", groupId)
+                i.putExtra("type", type)
+
+                if (type == "channel") {
+                    val roomId = intent.getStringExtra("roomId")
+                    i.putExtra("roomId", roomId)
+                }
+
+                startActivity(i)
+            }
         }
     }
 

@@ -53,7 +53,8 @@ class ChatActivity : AppCompatActivity (){
         when(item.itemId) {
             R.id.opt_members -> {
                 val i = Intent(this, MiembrosActivity::class.java)
-                i.putExtra("chatId", chatId!!)
+                i.putExtra("groupId", chatId!!)
+                i.putExtra("type", "chat")
                 startActivity(i)
             }
         }

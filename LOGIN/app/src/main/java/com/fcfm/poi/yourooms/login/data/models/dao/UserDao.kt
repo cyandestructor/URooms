@@ -6,6 +6,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.tasks.await
+import java.util.*
 
 class UserDao {
     private val db: FirebaseFirestore = Firebase.firestore
@@ -115,5 +116,32 @@ class UserDao {
         catch (e: Exception) {
             return false
         }
+    }
+
+    suspend fun searchUsers(input: String) : List<User> {
+        val users = mutableListOf<User>()
+
+        try {
+            val result = db.collection("users")
+                .whereArrayContains("keywords", input.lowercase(Locale.getDefault()))
+                .get()
+                .await()
+
+            for (document in result.documents) {
+                val user = User(
+                    document.id,
+                    document.getString("name"),
+                    document.getString("lastname"),
+                    document.getString("image")
+                )
+
+                users += user
+            }
+        }
+        catch (e: Exception) {
+            // TODO: Print error
+        }
+
+        return users
     }
 }

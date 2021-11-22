@@ -59,7 +59,8 @@ class ForoGenActivity : AppCompatActivity() {
             R.id.icon_1 -> {
                 val i = Intent(this, MiembrosActivity::class.java)
                 i.putExtra("roomId", roomId!!)
-                i.putExtra("channelId", channelId!!)
+                i.putExtra("groupId", channelId!!)
+                i.putExtra("type", "channel")
                 startActivity(i)
             }
             R.id.icon_2 -> {

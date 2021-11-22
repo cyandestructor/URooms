@@ -48,7 +48,8 @@ class ChannelsActivity : AppCompatActivity() {
         when(item.itemId) {
             R.id.opt_members -> {
                 val i = Intent(this, MiembrosActivity::class.java)
-                i.putExtra("roomId", roomId!!)
+                i.putExtra("groupId", roomId!!)
+                i.putExtra("type", "room")
                 startActivity(i)
             }
         }

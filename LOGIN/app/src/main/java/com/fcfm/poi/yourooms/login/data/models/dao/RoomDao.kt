@@ -144,16 +144,12 @@ class RoomDao {
         val room = db.collection("rooms").document(roomId)
         val roomMembers = room.collection("members")
 
-        val membersIds = mutableListOf<String>()
-
         val batch = db.batch()
 
         return try {
             // Create a member in the Room members subcollection
             for (member in members) {
                 if(member.id != null) {
-                    membersIds += member.id
-
                     val data = hashMapOf(
                         "name" to member.name,
                         "lastname" to member.lastname,
@@ -162,10 +158,9 @@ class RoomDao {
 
                     val memberDocument = roomMembers.document(member.id)
                     batch.set(memberDocument, data)
+                    batch.update(room, "members", FieldValue.arrayUnion(member.id))
                 }
             }
-
-            batch.update(room, "members", FieldValue.arrayUnion(membersIds))
 
             batch.commit().await()
 
