@@ -11,7 +11,6 @@ import com.fcfm.poi.yourooms.login.databinding.ActivityMainBinding
 
 class PerfilActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pantalla_perfil)
@@ -29,18 +28,17 @@ class PerfilActivity : AppCompatActivity() {
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                TODO("Not yet implemented")
-            }
-        }
 
-        findViewById<ImageButton>(R.id.button_return).setOnClickListener{
-            val pantallainic = Intent(this,PrincipalActivity::class.java)
-            startActivity(pantallainic)
+            }
         }
 
         findViewById<Button>(R.id.button_insignias).setOnClickListener{
             val pantallainsig = Intent(this,InsigniasActivity::class.java)
             startActivity(pantallainsig)
         }
+    }
+
+    private fun loadUserData() {
+
     }
 }
