@@ -42,7 +42,7 @@ class PerfilActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.button_insignias).setOnClickListener{
-            val pantallainsig = Intent(this,InsigniasActivity::class.java)
+            val pantallainsig = Intent(this, InsigniasActivity::class.java)
             startActivity(pantallainsig)
         }
     }
