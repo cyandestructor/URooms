@@ -35,7 +35,10 @@ class PerfilActivity : AppCompatActivity() {
         spinner.onItemSelectedListener = object:
         AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                Toast.makeText(this@PerfilActivity, lista[p2],Toast.LENGTH_LONG).show()
+                val connectionState = lista[p2]
+                if (connectionState != "Estado de conexión") {
+                    setUserConnectionState(connectionState)
+                }
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -51,6 +54,19 @@ class PerfilActivity : AppCompatActivity() {
         }
     }
 
+    private fun setUserConnectionState(connectionState : String) {
+        val userId = AuthenticationManager().getCurrentUser()?.uid ?: return
+
+        CoroutineScope(Dispatchers.IO).launch {
+            val success = UserDao().setConnectionState(userId, connectionState)
+            withContext(Dispatchers.Main) {
+                if (success) {
+                    findViewById<TextView>(R.id.textView_estado).text = connectionState
+                }
+            }
+        }
+    }
+
     @SuppressLint("SetTextI18n")
     private fun loadUserData() {
         val userId = AuthenticationManager().getCurrentUser()?.uid ?: return
@@ -63,6 +79,7 @@ class PerfilActivity : AppCompatActivity() {
                 withContext(Dispatchers.Main) {
                     findViewById<TextView>(R.id.textView_Nombre_Perfil).text = "${userModel.name} ${userModel.lastname}"
                     findViewById<TextView>(R.id.textView_Correo).text = userModel.email
+                    findViewById<TextView>(R.id.textView_estado).text = userModel.connectionState ?: "Desconocido"
                 }
             }
         }

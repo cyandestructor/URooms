@@ -5,6 +5,7 @@
 
 
     <string-array name="estados_usuario">
+        <item>Estado de conexión</item>
         <item>Conectado</item>
         <item>Desconectado</item>
         <item>Ausente</item>

@@ -7,5 +7,6 @@ data class User(
     val image: String? = null,
     val badges: List<String>? = null,
     val email: String? = null,
-    val score: Int? = 0
+    val score: Int? = 0,
+    val connectionState : String? = null
 )

@@ -47,7 +47,8 @@ class UserDao {
                 result.getString("image"),
                 (result.get("badges") as? List<*>)?.filterIsInstance<String>(),
                 result.getString("email"),
-                result.getDouble("score")?.toInt()
+                result.getDouble("score")?.toInt(),
+                result.getString("connectionState")
             )
         }
         catch (e: Exception) {
@@ -95,6 +96,20 @@ class UserDao {
             db.collection("users")
                 .document(userId)
                 .update("score", FieldValue.increment(score.toLong()))
+                .await()
+
+            true
+        }
+        catch (e: Exception) {
+            return false
+        }
+    }
+
+    suspend fun setConnectionState(userId: String, state: String) : Boolean {
+        return try {
+            db.collection("users")
+                .document(userId)
+                .update("connectionState", state)
                 .await()
 
             true

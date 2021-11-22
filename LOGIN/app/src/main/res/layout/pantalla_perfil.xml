@@ -85,17 +85,17 @@
         app:layout_constraintTop_toBottomOf="@+id/imagen_equipo_cuadro" />
 
     <TextView
-        android:id="@+id/textView_carrera"
+        android:id="@+id/textView_estado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="LIC. MULTIMEDIA Y ANIMACION DIGITAL"
         android:textAlignment="center"
         android:textColor="#707070"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="@+id/textView_escolaridad"
         app:layout_constraintStart_toStartOf="@+id/textView_escolaridad"
-        app:layout_constraintTop_toBottomOf="@+id/textView_escolaridad" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_escolaridad"
+        tools:text="Conectado" />
 
 
     <TextView
@@ -149,9 +149,9 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/estilo_spinner"
         app:circularflow_defaultRadius="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/textView_carrera"
-        app:layout_constraintStart_toStartOf="@+id/textView_carrera"
-        app:layout_constraintTop_toBottomOf="@+id/textView_carrera"
+        app:layout_constraintEnd_toEndOf="@+id/textView_estado"
+        app:layout_constraintStart_toStartOf="@+id/textView_estado"
+        app:layout_constraintTop_toBottomOf="@+id/textView_estado"
         tools:ignore="SpeakableTextPresentCheck" />
 
 
