@@ -16,6 +16,7 @@ import com.fcfm.poi.yourooms.login.data.models.User
 import com.fcfm.poi.yourooms.login.data.models.dao.FileDao
 import com.fcfm.poi.yourooms.login.data.models.dao.UserDao
 import com.fcfm.poi.yourooms.login.databinding.ActivityMainBinding
+import com.squareup.picasso.Picasso
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -88,6 +89,13 @@ class PerfilActivity : AppCompatActivity() {
                     findViewById<TextView>(R.id.textView_Nombre_Perfil).text = "${userModel.name} ${userModel.lastname}"
                     findViewById<TextView>(R.id.textView_Correo).text = userModel.email
                     findViewById<TextView>(R.id.textView_estado).text = userModel.connectionState ?: "Desconocido"
+
+                    val imageView = findViewById<ImageView>(R.id.icono_pic_grupo)
+                    Picasso.get()
+                        .load(userModel.image)
+                        .placeholder(R.drawable.avatar_placeholder)
+                        .error(R.drawable.avatar_placeholder)
+                        .into(imageView)
                 }
             }
         }
