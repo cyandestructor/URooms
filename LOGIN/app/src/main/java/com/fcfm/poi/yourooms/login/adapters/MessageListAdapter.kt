@@ -21,7 +21,9 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 
-class MessageListAdapter(val messageList: MutableList<Message>) : RecyclerView.Adapter<MessageListAdapter.MessageHolder>() {
+class MessageListAdapter(val messageList: MutableList<Message>) : RecyclerView.Adapter<MessageListAdapter.MessageHolder>(), View.OnClickListener {
+    private var listener: View.OnClickListener? = null
+
     class MessageHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         @SuppressLint("SimpleDateFormat")
         fun bind(message: Message) {
@@ -35,21 +37,29 @@ class MessageListAdapter(val messageList: MutableList<Message>) : RecyclerView.A
                 messageBody = CifradoUtils.descifrar(messageBody!!, "mypassword")
             }
 
-            itemView.findViewById<TextView>(R.id.msj_cont).text = messageBody
+            if (message.hasMultimedia != null && message.hasMultimedia) {
+                messageBody = "Este mensaje contiene archivos. Presiona el mensaje para verlos"
+            }
 
-            val imageView = itemView.findViewById<ImageView>(R.id.icono_pic_grupo)
+            itemView.findViewById<TextView>(R.id.msj_cont).text = messageBody
 
             val date = message.date?.toDate()
             if (date != null) {
                 val sdf = SimpleDateFormat("yyyy-MM-dd h:mm a")
                 itemView.findViewById<TextView>(R.id.fecha_mensaje).text = sdf.format(date)
             }
+
+            itemView.tag = message
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MessageHolder {
         val inflater = LayoutInflater.from(parent.context)
-        return MessageHolder(inflater.inflate(R.layout.estilo_mensajes, parent, false))
+        val view = inflater.inflate(R.layout.estilo_mensajes, parent, false)
+
+        view.setOnClickListener(this)
+
+        return MessageHolder(view)
     }
 
     override fun onBindViewHolder(holder: MessageHolder, position: Int) {
@@ -57,4 +67,14 @@ class MessageListAdapter(val messageList: MutableList<Message>) : RecyclerView.A
     }
 
     override fun getItemCount(): Int = messageList.size
+
+    fun setOnClickListener(listener: View.OnClickListener) {
+        this.listener = listener
+    }
+
+    override fun onClick(p0: View?) {
+        if (listener != null) {
+            listener!!.onClick(p0)
+        }
+    }
 }

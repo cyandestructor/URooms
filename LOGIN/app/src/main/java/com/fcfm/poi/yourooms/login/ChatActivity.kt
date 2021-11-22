@@ -121,6 +121,17 @@ class ChatActivity : AppCompatActivity (){
                 val messages = messageDao.getChatMessages(chatId!!)
 
                 messageListAdapter = MessageListAdapter(messages.toMutableList())
+
+                messageListAdapter?.setOnClickListener {
+                    val message = it.tag as Message
+                    if (message.hasMultimedia != null && message.hasMultimedia) {
+                        val messageId = message.id
+                        val i = Intent(this@ChatActivity, ContainerFilesActivity::class.java)
+                        i.putExtra("containerId", messageId)
+                        startActivity(i)
+                    }
+                }
+
                 withContext(Dispatchers.Main) {
                     messageRecyclerView.adapter = messageListAdapter
                     listenToMessages()
