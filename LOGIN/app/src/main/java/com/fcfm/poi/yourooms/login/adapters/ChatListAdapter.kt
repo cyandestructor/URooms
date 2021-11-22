@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.fcfm.poi.yourooms.login.CifradoUtils
 import com.fcfm.poi.yourooms.login.R
 import com.fcfm.poi.yourooms.login.data.models.Chat
 
@@ -15,7 +16,14 @@ class ChatListAdapter(private val chatList: List<Chat>) : RecyclerView.Adapter<C
     class ChatHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(chat: Chat) {
             itemView.findViewById<TextView>(R.id.titulo_nombre).text = chat.name
-            itemView.findViewById<TextView>(R.id.lastMessageBody).text = chat.lastMessage?.body
+
+            var messageBody = chat.lastMessage?.body
+
+            if (chat.lastMessage?.encrypted != null && chat.lastMessage?.encrypted) {
+                messageBody = CifradoUtils.descifrar(messageBody!!, "mypassword")
+            }
+
+            itemView.findViewById<TextView>(R.id.lastMessageBody).text = messageBody
             itemView.tag = chat
 
         }

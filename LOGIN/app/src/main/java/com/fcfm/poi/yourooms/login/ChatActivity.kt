@@ -27,6 +27,7 @@ class ChatActivity : AppCompatActivity (){
     private var chatId: String? = null
     private val messageDao = MessageDao()
     private var messageListAdapter: MessageListAdapter? = null
+    private var encryptionMode = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +43,17 @@ class ChatActivity : AppCompatActivity (){
         chatId = intent.getStringExtra("chatId")
         val chatName = intent.getStringExtra("chatName")
         supportActionBar?.title = chatName
+
+        findViewById<ImageButton>(R.id.imgBtn_encrypt).setOnClickListener {
+            encryptionMode = !encryptionMode
+
+            if (encryptionMode) {
+                Toast.makeText(applicationContext, "Cifrado de mensajes activado", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                Toast.makeText(applicationContext, "Cifrado de mensajes desactivado", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -105,16 +117,22 @@ class ChatActivity : AppCompatActivity (){
 
         it.isEnabled = false
         val messageEditText = findViewById<EditText>(R.id.Edit_mensaje)
-        val body = messageEditText.text.toString()
+        var body = messageEditText.text.toString()
         CoroutineScope(Dispatchers.IO).launch {
 
             val userModel = UserDao().getUser(userId)
+
+            if (encryptionMode) {
+                body = CifradoUtils.cifrar(body, "mypassword")
+            }
 
             val message = Message(
                 null,
                 Timestamp.now(),
                 body,
-                userModel
+                userModel,
+                false,
+                encryptionMode
             )
 
             val messageId = messageDao.addMessage(message, chatId!!)

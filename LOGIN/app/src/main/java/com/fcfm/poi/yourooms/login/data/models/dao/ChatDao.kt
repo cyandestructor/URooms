@@ -81,7 +81,9 @@ class ChatDao {
                             null,
                             document.getString("lastMessage.sender.name"),
                             document.getString("lastMessage.sender.lastname")
-                        )
+                        ),
+                        null,
+                        document.getBoolean("lastMessage.encrypted")
                     ),
                     document.getBoolean("isPrivate")
                 )

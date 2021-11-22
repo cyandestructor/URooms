@@ -1,16 +1,14 @@
 package com.fcfm.poi.yourooms.login.adapters
 
 import android.annotation.SuppressLint
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.fcfm.poi.yourooms.login.CifradoUtils
 import com.fcfm.poi.yourooms.login.R
-import com.fcfm.poi.yourooms.login.authentication.AuthenticationManager
 import com.fcfm.poi.yourooms.login.data.models.Message
 import com.squareup.picasso.Picasso
 import java.text.SimpleDateFormat
@@ -22,7 +20,14 @@ class MessageListAdapter(val messageList: MutableList<Message>) : RecyclerView.A
             val userName = "${message.sender?.name} ${message.sender?.lastname}"
 
             itemView.findViewById<TextView>(R.id.Propietario_mensaje).text = userName
-            itemView.findViewById<TextView>(R.id.msj_cont).text = message.body
+
+            var messageBody = message.body
+
+            if (message.encrypted != null && message.encrypted) {
+                messageBody = CifradoUtils.descifrar(messageBody!!, "mypassword")
+            }
+
+            itemView.findViewById<TextView>(R.id.msj_cont).text = messageBody
 
             val imageView = itemView.findViewById<ImageView>(R.id.icono_pic_grupo)
             Picasso.get()

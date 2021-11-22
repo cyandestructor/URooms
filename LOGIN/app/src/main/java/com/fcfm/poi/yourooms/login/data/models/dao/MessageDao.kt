@@ -26,6 +26,7 @@ class MessageDao {
             "body" to message.body,
             "date" to message.date,
             "hasMultimedia" to message.hasMultimedia,
+            "encrypted" to message.encrypted,
             "sender" to hashMapOf(
                 "id" to message.sender?.id,
                 "name" to message.sender?.name,
@@ -44,6 +45,7 @@ class MessageDao {
 
             val lastMessage = hashMapOf(
                 "body" to message.body,
+                "encrypted" to message.encrypted,
                 "sender" to hashMapOf(
                     "name" to message.sender?.name,
                     "lastname" to message.sender?.lastname,
@@ -104,7 +106,8 @@ class MessageDao {
                         document.getString("sender.lastname"),
                         document.getString("sender.image")
                     ),
-                    document.getBoolean("hasMultimedia")
+                    document.getBoolean("hasMultimedia"),
+                    document.getBoolean("encrypted")
                 )
 
                 messages += message
@@ -153,7 +156,8 @@ class MessageDao {
                             document.getString("sender.lastname"),
                             document.getString("sender.image")
                         ),
-                        document.getBoolean("hasMultimedia")
+                        document.getBoolean("hasMultimedia"),
+                        document.getBoolean("encrypted")
                     )
 
                     messages += message

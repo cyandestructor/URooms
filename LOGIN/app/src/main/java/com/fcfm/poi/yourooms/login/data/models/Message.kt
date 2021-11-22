@@ -7,5 +7,6 @@ data  class Message(
     val date: Timestamp? = null,
     val body: String? = null,
     val sender: User? = null,
-    val hasMultimedia: Boolean? = false
+    val hasMultimedia: Boolean? = false,
+    val encrypted : Boolean? = false
 )
