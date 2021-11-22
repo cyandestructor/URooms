@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -11,8 +12,7 @@
         android:layout_height="95dp"
         android:background="#ffffff">
 
-        <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
+        <androidx.cardview.widget.CardView
             android:id="@+id/imagen_equipo_cuadro"
             android:layout_width="60dp"
             android:layout_height="60dp"
@@ -25,7 +25,8 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/foto_perfil" />
+                android:src="@drawable/foto_perfil"
+                app:srcCompat="@drawable/avatar_placeholder" />
         </androidx.cardview.widget.CardView>
 
         <TextView
@@ -40,6 +41,17 @@
             tools:text="Bryan Duarte">
 
         </TextView>
+
+        <TextView
+            android:id="@+id/estadoConexion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titulo_nombre"
+            android:layout_alignStart="@+id/titulo_nombre"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="3dp"
+            android:textColor="@color/black"
+            tools:text="Conectado" />
 
 
     </RelativeLayout>
