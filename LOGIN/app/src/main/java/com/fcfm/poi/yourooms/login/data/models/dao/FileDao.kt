@@ -26,7 +26,7 @@ class FileDao {
 
             File(
                 null, null, null,
-                url.toString(), null,
+                url.toString(), filename,
                 result.metadata?.contentType, Date()
             )
         }
@@ -37,7 +37,6 @@ class FileDao {
 
     suspend fun addFile(file: File) : String? {
         val data = hashMapOf(
-            "id" to file.id,
             "containerId" to file.containerId,
             "groupId" to file.groupId,
             "url" to file.url,

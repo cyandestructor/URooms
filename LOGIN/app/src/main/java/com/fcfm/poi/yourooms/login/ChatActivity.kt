@@ -5,6 +5,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Geocoder
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -19,7 +20,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.fcfm.poi.yourooms.login.adapters.MessageListAdapter
 import com.fcfm.poi.yourooms.login.authentication.AuthenticationManager
+import com.fcfm.poi.yourooms.login.data.models.File
 import com.fcfm.poi.yourooms.login.data.models.Message
+import com.fcfm.poi.yourooms.login.data.models.User
+import com.fcfm.poi.yourooms.login.data.models.dao.FileDao
 import com.fcfm.poi.yourooms.login.data.models.dao.MessageDao
 import com.fcfm.poi.yourooms.login.data.models.dao.UserDao
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -60,6 +64,10 @@ class ChatActivity : AppCompatActivity (){
 
         findViewById<ImageButton>(R.id.imgBtn_position).setOnClickListener {
             sendLocation(it)
+        }
+
+        findViewById<ImageButton>(R.id.imageButton_adjfile).setOnClickListener {
+            launchFileActivity.launch("*/*")
         }
 
         findViewById<ImageButton>(R.id.imgBtn_encrypt).setOnClickListener {
@@ -258,5 +266,59 @@ class ChatActivity : AppCompatActivity (){
         }
 
         return null
+    }
+
+    private var launchFileActivity = registerForActivityResult(ActivityResultContracts.GetContent()) {
+        sendFileMessage(it)
+    }
+
+    private fun sendFileMessage(fileUri : Uri) {
+        val userId = AuthenticationManager().getCurrentUser()?.uid ?: return
+
+        CoroutineScope(Dispatchers.IO).launch {
+            val userModel = UserDao().getUser(userId)
+            var result = false
+
+            if (userModel != null) {
+                val uploadedFile = FileDao().uploadFile(fileUri, "files")
+                val url = uploadedFile?.url
+                if (url != null) {
+
+                    val messageId = MessageDao().getNewMessageId(chatId!!)
+
+                    val file = File(
+                        null,
+                        messageId,
+                        chatId!!,
+                        url,
+                        uploadedFile.name,
+                        uploadedFile.contentType,
+                        Date()
+                    )
+
+                    val fileId = FileDao().addFile(file)
+                    if (fileId != null) {
+                        val message = Message(
+                            messageId,
+                            Timestamp.now(),
+                            uploadedFile.name,
+                            userModel,
+                            true
+                        )
+
+                        val newMessageId = messageDao.addMessageWithId(message, chatId!!)
+                        if (newMessageId != null && messageId == newMessageId) {
+                            result = true
+                        }
+                    }
+                }
+            }
+
+            withContext(Dispatchers.Main) {
+                if (!result) {
+                    Toast.makeText(applicationContext, "No se pudo enviar el mensaje", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
 }

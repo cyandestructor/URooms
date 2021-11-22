@@ -63,6 +63,55 @@ class MessageDao {
         }
     }
 
+    fun getNewMessageId(chatId: String) : String {
+        val chat = db.collection("chats").document(chatId)
+        val messageDocument = chat.collection("messages").document()
+
+        return messageDocument.id
+    }
+
+    suspend fun addMessageWithId(message: Message, chatId: String): String? {
+        val data = hashMapOf(
+            "body" to message.body,
+            "date" to message.date,
+            "hasMultimedia" to message.hasMultimedia,
+            "encrypted" to message.encrypted,
+            "sender" to hashMapOf(
+                "id" to message.sender?.id,
+                "name" to message.sender?.name,
+                "lastname" to message.sender?.lastname,
+                "image" to message.sender?.image
+            )
+        )
+
+        val chat = db.collection("chats").document(chatId)
+        val messageDocument = chat.collection("messages").document(message.id!!)
+
+        val batch = db.batch()
+
+        return try {
+            batch.set(messageDocument, data)
+
+            val lastMessage = hashMapOf(
+                "body" to message.body,
+                "encrypted" to message.encrypted,
+                "sender" to hashMapOf(
+                    "name" to message.sender?.name,
+                    "lastname" to message.sender?.lastname,
+                )
+            )
+
+            batch.update(chat, "lastMessage", lastMessage)
+
+            batch.commit().await()
+
+            messageDocument.id
+        }
+        catch (e: Exception) {
+            return null
+        }
+    }
+
     suspend fun getChatMessages(
         chatId: String,
         limit: Long? = null,
