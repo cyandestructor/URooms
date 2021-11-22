@@ -9,6 +9,7 @@ import android.view.inputmethod.InputBinding
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.fcfm.poi.yourooms.login.authentication.AuthenticationManager
+import com.fcfm.poi.yourooms.login.data.models.User
 import com.fcfm.poi.yourooms.login.data.models.dao.UserDao
 import com.fcfm.poi.yourooms.login.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
@@ -17,6 +18,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class PerfilActivity : AppCompatActivity() {
+    private var user : User? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +45,8 @@ class PerfilActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.button_insignias).setOnClickListener{
             val pantallainsig = Intent(this, InsigniasActivity::class.java)
+            pantallainsig.putExtra("badges", user?.badges?.toTypedArray())
+            pantallainsig.putExtra("score", user?.score)
             startActivity(pantallainsig)
         }
     }
@@ -53,6 +57,7 @@ class PerfilActivity : AppCompatActivity() {
 
         CoroutineScope(Dispatchers.IO).launch {
             val userModel = UserDao().getUser(userId)
+            user = userModel
 
             if (userModel != null) {
                 withContext(Dispatchers.Main) {
