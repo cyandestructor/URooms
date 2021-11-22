@@ -43,7 +43,8 @@ class ChatDao {
                 "name" to chat.name,
                 "image" to chat.image,
                 "members" to membersIds,
-                "totalMembers" to membersIds.size
+                "totalMembers" to membersIds.size,
+                "isPrivate" to chat.isPrivate
             )
 
             batch.set(chatDocument, data)
@@ -81,7 +82,8 @@ class ChatDao {
                             document.getString("lastMessage.sender.name"),
                             document.getString("lastMessage.sender.lastname")
                         )
-                    )
+                    ),
+                    document.getBoolean("isPrivate")
                 )
 
                 chats += chat
@@ -153,6 +155,36 @@ class ChatDao {
         catch (e: Exception){
             Log.e("ChatDao", e.message ?: "No message")
             return false
+        }
+    }
+
+    suspend fun getPrivateChatBetween(userAId: String, userBId: String) : String? {
+        return try {
+            var chatId : String? = null
+            // First get all the private chats of user A
+            val result = db.collection("chats")
+                .whereArrayContains("members", userAId)
+                .whereEqualTo("isPrivate", true)
+                .whereEqualTo("totalMembers", 2)
+                .get()
+                .await()
+
+            // Then look for the id of User B in the members of the private chats
+            for (document in result.documents) {
+                val members = (document.get("members") as? List<*>)?.filterIsInstance<String>()
+                    ?: continue
+
+                if (members.contains(userBId)) {
+                    chatId = document.id
+                    break
+                }
+            }
+
+            chatId
+        }
+        catch (e: Exception) {
+            val message = e.message
+            return null
         }
     }
 
