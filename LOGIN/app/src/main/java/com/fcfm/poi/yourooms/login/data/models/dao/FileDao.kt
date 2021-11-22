@@ -35,6 +35,36 @@ class FileDao {
         }
     }
 
+    suspend fun getContainerFiles(containerId: String) : List<File> {
+        val files = mutableListOf<File>()
+
+        try {
+            val result = db.collection("files")
+                .whereEqualTo("containerId", containerId)
+                .get()
+                .await()
+
+            for (document in result.documents) {
+                val file = File(
+                    document.id,
+                    containerId,
+                    document.getString("groupId"),
+                    document.getString("url"),
+                    document.getString("name"),
+                    document.getString("contentType"),
+                    document.getDate("date")
+                )
+
+                files += file
+            }
+        }
+        catch (e: Exception) {
+            // TODO : Print error message
+        }
+
+        return files
+    }
+
     suspend fun addFile(file: File) : String? {
         val data = hashMapOf(
             "containerId" to file.containerId,

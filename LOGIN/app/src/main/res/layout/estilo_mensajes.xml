@@ -2,6 +2,7 @@
 
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cv"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -20,7 +21,7 @@
         <RelativeLayout
             android:id="@+id/mensaje_cont"
             android:layout_width="307dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="#DADADA"
             android:orientation="horizontal"
             android:padding="16dp">
@@ -71,7 +72,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/Propietario_mensaje"
                 android:layout_marginTop="19dp"
-                android:text="Hola! Recuerda que tenemos que hacer reunion para la actividad de la otra clase, byeee." />
+                android:text="Hola! Recuerda que tenemos que hacer reunion para la actividad de la otra clase, byeee."
+                android:textColor="@color/black" />
 
 
         </RelativeLayout>

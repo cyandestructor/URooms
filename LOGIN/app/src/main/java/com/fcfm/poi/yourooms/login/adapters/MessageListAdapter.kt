@@ -1,16 +1,24 @@
 package com.fcfm.poi.yourooms.login.adapters
 
 import android.annotation.SuppressLint
+import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.fcfm.poi.yourooms.login.CifradoUtils
 import com.fcfm.poi.yourooms.login.R
+import com.fcfm.poi.yourooms.login.data.models.File
 import com.fcfm.poi.yourooms.login.data.models.Message
+import com.fcfm.poi.yourooms.login.data.models.dao.FileDao
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 
 class MessageListAdapter(val messageList: MutableList<Message>) : RecyclerView.Adapter<MessageListAdapter.MessageHolder>() {
@@ -30,11 +38,6 @@ class MessageListAdapter(val messageList: MutableList<Message>) : RecyclerView.A
             itemView.findViewById<TextView>(R.id.msj_cont).text = messageBody
 
             val imageView = itemView.findViewById<ImageView>(R.id.icono_pic_grupo)
-            Picasso.get()
-                .load(message.sender?.image)
-                .placeholder(R.drawable.avatar_placeholder)
-                .error(R.drawable.avatar_placeholder)
-                .into(imageView)
 
             val date = message.date?.toDate()
             if (date != null) {
