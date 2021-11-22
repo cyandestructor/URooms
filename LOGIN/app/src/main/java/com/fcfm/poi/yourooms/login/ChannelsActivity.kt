@@ -10,6 +10,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.fcfm.poi.yourooms.login.adapters.ChannelListAdapter
+import com.fcfm.poi.yourooms.login.authentication.AuthenticationManager
 import com.fcfm.poi.yourooms.login.data.models.Channel
 import com.fcfm.poi.yourooms.login.data.models.dao.ChannelDao
 import kotlinx.coroutines.CoroutineScope
@@ -59,9 +60,10 @@ class ChannelsActivity : AppCompatActivity() {
 
     private fun loadChannels() {
         val roomId = intent.getStringExtra("roomId") ?: return
+        val userId = AuthenticationManager().getCurrentUser()?.uid ?: return
 
         CoroutineScope(Dispatchers.IO).launch {
-            val channels = ChannelDao().getRoomChannels(roomId)
+            val channels = ChannelDao().getRoomUserChannels(roomId, userId)
             val channelsAdapter = ChannelListAdapter(channels)
 
             channelsAdapter.setOnClickListener {
