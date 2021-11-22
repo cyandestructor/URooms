@@ -53,13 +53,13 @@
 
             <TextView
                 android:id="@+id/fecha_mensaje"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="320dp"
+                android:layout_height="19dp"
                 android:layout_below="@+id/Propietario_mensaje"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="0dp"
-                android:layout_marginEnd="197dp"
+                android:layout_marginEnd="31dp"
                 android:layout_toEndOf="@+id/imagen_equipo_cuadro"
                 android:text="10 sep 9:04 a.m."
                 android:textColor="#757575" />
@@ -69,7 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/Propietario_mensaje"
-                android:layout_marginTop="19dp"
+                android:layout_marginTop="40dp"
                 android:text="Chicos, les quiero decir que Adiós, Bye Bye, Au revoir, Sayonara se los digo como quiera ya no quiero ver su cara "
                 android:textColor="@color/black" />
 

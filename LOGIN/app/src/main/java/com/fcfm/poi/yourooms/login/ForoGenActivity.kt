@@ -2,18 +2,22 @@ package com.fcfm.poi.yourooms.login
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.fcfm.poi.yourooms.login.adapters.PostListAdapter
 import com.fcfm.poi.yourooms.login.authentication.AuthenticationManager
+import com.fcfm.poi.yourooms.login.data.models.File
 import com.fcfm.poi.yourooms.login.data.models.Post
+import com.fcfm.poi.yourooms.login.data.models.dao.FileDao
 import com.fcfm.poi.yourooms.login.data.models.dao.PostDao
 import com.fcfm.poi.yourooms.login.data.models.dao.UserDao
 import com.google.firebase.Timestamp
@@ -21,6 +25,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.*
 
 class ForoGenActivity : AppCompatActivity() {
     private lateinit var postsRecyclerView: RecyclerView
@@ -46,6 +51,10 @@ class ForoGenActivity : AppCompatActivity() {
         val btnSendPost = findViewById<ImageButton>(R.id.imageButton_sendmess)
         btnSendPost.setOnClickListener {
             sendPost(it)
+        }
+
+        findViewById<ImageButton>(R.id.imageButton_adjfile).setOnClickListener {
+            launchFileActivity.launch("*/*")
         }
     }
 
@@ -98,6 +107,16 @@ class ForoGenActivity : AppCompatActivity() {
                 val posts = postDao.getChannelPosts(roomId!!, channelId!!)
 
                 postListAdapter = PostListAdapter(posts.toMutableList())
+
+                postListAdapter?.setOnClickListener {
+                    val post = it.tag as Post
+                    if (post.hasMultimedia != null && post.hasMultimedia) {
+                        val i = Intent(this@ForoGenActivity, ContainerFilesActivity::class.java)
+                        i.putExtra("containerId", post.id)
+                        startActivity(i)
+                    }
+                }
+
                 withContext(Dispatchers.Main) {
                     postsRecyclerView.adapter = postListAdapter
                     listenToPosts()
@@ -111,6 +130,63 @@ class ForoGenActivity : AppCompatActivity() {
         postDao.listenPosts(roomId!!, channelId!!) {
             postListAdapter?.posts?.addAll(0, it)
             postListAdapter?.notifyDataSetChanged()
+        }
+    }
+
+    private var launchFileActivity = registerForActivityResult(ActivityResultContracts.GetContent()) {
+        sendFilePost(it)
+    }
+
+    private fun sendFilePost(fileUri: Uri) {
+        val user = AuthenticationManager().getCurrentUser() ?: return
+        val userId = user.uid
+
+        CoroutineScope(Dispatchers.IO).launch {
+            val userModel = UserDao().getUser(userId)
+            var result = false
+
+            if (userModel != null) {
+                val uploadedFile = FileDao().uploadFile(fileUri, "files")
+                val url = uploadedFile?.url
+                if (url != null) {
+                    val postId = PostDao().getNewPostId(roomId!!, channelId!!)
+
+                    val file = File(
+                        null,
+                        postId,
+                        channelId!!,
+                        url,
+                        uploadedFile.name,
+                        uploadedFile.contentType,
+                        Date()
+                    )
+
+                    val fileId = FileDao().addFile(file)
+
+                    if (fileId != null) {
+                        val post = Post(
+                            postId,
+                            "",
+                            Timestamp.now(),
+                            userModel,
+                            true,
+                            roomId!!,
+                            channelId!!
+                        )
+
+                        val newPostId = postDao.addPostWithId(post)
+                        if (newPostId != null && postId == newPostId) {
+                            result = true
+                        }
+                    }
+                }
+            }
+
+            withContext(Dispatchers.Main) {
+                if (!result) {
+                    Toast.makeText(applicationContext, "No se pudo cargar la publicación", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
     }
 

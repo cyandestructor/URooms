@@ -43,6 +43,36 @@ class PostDao {
         }
     }
 
+    fun getNewPostId(roomId: String, channelId: String) : String {
+        return db.collection("rooms/${roomId}/channels/${channelId}/posts").document().id
+    }
+
+    suspend fun addPostWithId(post: Post): String? {
+        val data = hashMapOf(
+            "body" to post.body,
+            "date" to post.date,
+            "hasMultimedia" to post.hasMultimedia,
+            "poster" to hashMapOf(
+                "id" to post.poster?.id,
+                "name" to post.poster?.name,
+                "lastname" to post.poster?.lastname,
+                "image" to post.poster?.image
+            )
+        )
+
+        return try {
+            val result = db.collection("rooms/${post.roomId}/channels/${post.channelId}/posts")
+                .document(post.id!!)
+                .set(data)
+                .await()
+
+            post.id
+        }
+        catch (e: Exception) {
+            return null
+        }
+    }
+
     suspend fun getChannelPosts(roomId: String, channelId: String) : List<Post> {
         val posts = mutableListOf<Post>()
 
