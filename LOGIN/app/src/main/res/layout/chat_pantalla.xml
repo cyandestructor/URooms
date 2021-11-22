@@ -6,17 +6,31 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
+    <ImageButton
+        android:id="@+id/imgBtn_encrypt"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:backgroundTint="@color/purple_500"
+        android:tint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imgBtn_position"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@android:drawable/ic_lock_idle_lock"
+        tools:ignore="SpeakableTextPresentCheck" />
+
     <EditText
         android:id="@+id/Edit_mensaje"
-        android:layout_width="250dp"
-        android:layout_height="48dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:backgroundTint="@color/purple_700"
         android:ems="10"
         android:hint="Escribe un mensaje"
         android:inputType="textPersonName"
         android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton_adjfile"
+        app:layout_constraintBottom_toTopOf="@+id/imgBtn_position"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton_sendmess"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
@@ -25,19 +39,36 @@
         android:layout_height="48dp"
         android:backgroundTint="@color/purple_500"
 
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/Edit_mensaje"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/Edit_mensaje"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/ic_send"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
         android:id="@+id/imageButton_adjfile"
-        android:layout_width="48dp"
+        android:layout_width="0dp"
         android:layout_height="48dp"
         android:backgroundTint="@color/purple_500"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton_sendmess"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imgBtn_position"
         app:srcCompat="@drawable/ic_adjfile"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/imgBtn_position"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:backgroundTint="@color/purple_500"
+        android:tint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton_adjfile"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imgBtn_encrypt"
+        app:srcCompat="@android:drawable/ic_dialog_map"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <androidx.appcompat.widget.Toolbar
@@ -56,7 +87,6 @@
         android:id="@+id/messageRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toTopOf="@+id/Edit_mensaje"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
