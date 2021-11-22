@@ -2,6 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     >
@@ -25,13 +26,14 @@
                 android:layout_height="30dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_tarea_aviso_bell"
-                app:srcCompat="@drawable/ic_tarea_aviso_bell" />
+                app:srcCompat="@drawable/ic_tarea_aviso_bell"
+                tools:srcCompat="@drawable/ic_tarea_aviso_bell" />
         </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/Nombre_curso"
-            android:layout_width="221dp"
-            android:layout_height="27dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="20dp"
             android:layout_toRightOf="@+id/imagen_equipo_cuadro"
@@ -57,8 +59,8 @@
 
         <TextView
             android:id="@+id/texto_info"
-            android:layout_width="226dp"
-            android:layout_height="26dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/Nombre_curso"
             android:layout_marginStart="-27dp"
             android:layout_marginLeft="20dp"
